@@ -77,32 +77,23 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
           {/* Player Login / Character Dashboard Button */}
           <button
             onClick={onOpenLogin}
-            className="px-3.5 py-2.5 rounded-xl bg-[#0c1222] border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 font-bold text-xs flex items-center gap-2 hover:bg-cyan-500/10 transition-all shadow-[0_0_15px_rgba(0,240,255,0.15)] shrink-0 whitespace-nowrap cursor-pointer"
+            className="px-4 py-2.5 rounded-xl bg-[#0c1222] border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 font-bold text-xs flex items-center gap-2 hover:bg-cyan-500/10 transition-all shadow-[0_0_15px_rgba(0,240,255,0.15)] shrink-0 whitespace-nowrap cursor-pointer"
           >
             <LogIn className="w-4 h-4 text-cyan-400" />
             <span>تسجيل الدخول</span>
           </button>
 
-          {/* Download APK Button */}
+          {/* Direct APK Download Button */}
           <a
             href={downloadUrl}
             download="Equinox_VS_13.140.221.40.apk"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-2.5 rounded-xl bg-[#101828] border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 font-bold text-xs flex items-center gap-2 hover:bg-cyan-500/10 transition-all shadow-[0_0_15px_rgba(0,240,255,0.15)] shrink-0 whitespace-nowrap"
+            className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 hover:shadow-[0_0_22px_rgba(0,240,255,0.5)] text-white font-black text-xs transition-all transform hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer border border-white/20 shrink-0 whitespace-nowrap"
           >
-            <Download className="w-4 h-4 text-cyan-400" />
+            <Download className="w-4 h-4 text-white" />
             <span dir="ltr">تحميل APK</span>
           </a>
-
-          {/* Register Button */}
-          <button
-            onClick={onOpenRegister}
-            className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 via-amber-500 to-red-500 hover:shadow-[0_0_22px_rgba(255,85,0,0.6)] text-white font-black text-xs transition-all transform hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer border border-white/20 shrink-0 whitespace-nowrap"
-          >
-            <UserPlus className="w-4 h-4" />
-            <span>إنشاء حساب</span>
-          </button>
 
         </div>
 

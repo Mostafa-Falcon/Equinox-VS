@@ -64,33 +64,39 @@ export default function Hero({ onOpenRegister, onOpenLogin }: HeroProps) {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4 pt-2 max-w-xl">
-              <a
-                href={downloadUrl}
-                download="Equinox_VS_13.140.221.40.apk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 text-white font-black text-sm sm:text-base shadow-[0_0_30px_rgba(0,240,255,0.45)] hover:shadow-[0_0_45px_rgba(0,240,255,0.75)] transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 border border-white/30"
-              >
-                <Download className="w-5 h-5 text-white" />
-                <span>تحميل اللعبة APK المباشر</span>
-              </a>
+            <div className="space-y-3 pt-2 max-w-xl">
+              <div className="flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4">
+                <a
+                  href={downloadUrl}
+                  download="Equinox_VS_13.140.221.40.apk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto flex-1 px-7 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 text-white font-black text-sm sm:text-base shadow-[0_0_30px_rgba(0,240,255,0.45)] hover:shadow-[0_0_45px_rgba(0,240,255,0.75)] transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 border border-white/30"
+                >
+                  <Download className="w-5 h-5 text-white" />
+                  <span>تحميل اللعبة APK المباشر</span>
+                </a>
 
-              <button
-                onClick={onOpenRegister}
-                className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-orange-500 via-amber-500 to-red-500 text-white font-black text-sm sm:text-base shadow-[0_0_30px_rgba(255,69,0,0.35)] hover:shadow-[0_0_45px_rgba(255,69,0,0.65)] transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 border border-white/30 cursor-pointer"
-              >
-                <UserPlus className="w-5 h-5 text-white" />
-                <span>إنشاء حساب مجاني</span>
-              </button>
+                <button
+                  onClick={onOpenRegister}
+                  className="w-full sm:w-auto flex-1 px-7 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-orange-500 via-amber-500 to-red-500 text-white font-black text-sm sm:text-base shadow-[0_0_30px_rgba(255,69,0,0.35)] hover:shadow-[0_0_45px_rgba(255,69,0,0.65)] transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 border border-white/30 cursor-pointer"
+                >
+                  <UserPlus className="w-5 h-5 text-white" />
+                  <span>إنشاء حساب مجاني</span>
+                </button>
+              </div>
 
-              <button
-                onClick={onOpenLogin}
-                className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-2xl bg-[#0c1222] border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 font-black text-sm sm:text-base shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <LogIn className="w-5 h-5 text-cyan-400" />
-                <span>عرض حسابي</span>
-              </button>
+              {/* Subdued Existing Player Link */}
+              <div className="flex items-center justify-start gap-2 pt-1 text-xs font-extrabold text-slate-400">
+                <span>لديك حساب بالفعل؟</span>
+                <button
+                  onClick={onOpenLogin}
+                  className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4 flex items-center gap-1 cursor-pointer transition-colors"
+                >
+                  <LogIn className="w-3.5 h-3.5" />
+                  <span>تسجيل الدخول وعرض حسابك</span>
+                </button>
+              </div>
             </div>
 
             {/* Highlights Grid with Fixed LTR Orientations for Numbers/Labels */}

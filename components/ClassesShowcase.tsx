@@ -2,21 +2,20 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Swords, Shield, Crosshair, Sparkles, Zap, Flame, Snowflake, Crown, Anchor, Wind, Compass } from 'lucide-react';
+import { Swords, Shield, Crosshair, Sparkles, Zap, Flame, Snowflake, Crown, Anchor, Wind, Compass, ShieldAlert, Award } from 'lucide-react';
 
 const classesData = [
   {
     id: 'trojan',
-    name: 'المحارب التروجان (Trojan)',
+    name: 'التروجان',
+    englishName: 'TROJAN',
     icon: Swords,
-    cardImg: '/classes/jqsbtnnormal.jpg',
-    cardClickImg: '/classes/jqsbtnclick.jpg',
     portraitImg: '/classes/zyjqspic.jpg',
     avatarImg: '/classes/newjqslwt.jpg',
     modelRender: '/classes/hero_trojan.jpg',
-    weapon: 'سيفين مزدوجين (Dual Swords / Clubs)',
-    role: 'قتال فردي مباشر وقوة هجومية ساحقة',
-    desc: 'التروجان هو ملك القتال الفردي والمباشر في Conquer! يمتلك أعتى قوة هجومية بسيفين في نفس الوقت ومهارات الحركة السريعة (Scent Sword / Fast Blade) التي تقضي على الخصوم في ثوانٍ معدودة.',
+    weapon: 'سيفين مزدوجين (Dual Swords)',
+    role: 'ملك القتال الفردي والضرر القاتل السريع',
+    desc: 'التروجان هو ملك النزالات المباشرة في Conquer! يمتلك أعتى قوة هجومية بسيفين مزدوجين مع مهارات الحركة الخاطفة (Scent Sword & Fast Blade) التي تمكنه من الإطاحة بالخصوم في أجزاء من الثانية.',
     stats: { attack: 100, defense: 75, speed: 90, difficulty: 60 },
     highlights: [
       'استخدام سلاحين مزدوجين في نفس الوقت',
@@ -24,216 +23,207 @@ const classesData = [
       'سرعة قفز وضرر حاسم قاتل في معارك الـ PK'
     ],
     theme: 'border-orange-500/50 bg-gradient-to-r from-orange-500 to-amber-500',
-    badge: 'bg-orange-500/10 text-orange-400 border-orange-500/30',
-    glowColor: 'from-orange-500/30 via-amber-500/10 to-transparent',
+    badge: 'bg-orange-500/15 text-orange-400 border-orange-500/40',
     accentColor: '#f97316',
+    glowGradient: 'from-orange-600/30 via-amber-500/10 to-transparent',
   },
   {
     id: 'warrior',
-    name: 'السيّاف المحارب (Warrior)',
+    name: 'السيّاف',
+    englishName: 'WARRIOR',
     icon: Shield,
-    cardImg: '/classes/zsbtnnormal.jpg',
-    cardClickImg: '/classes/zsbtnclick.jpg',
     portraitImg: '/classes/zyzspic.jpg',
     avatarImg: '/classes/newzslwt.jpg',
     modelRender: '/classes/hero_warrior.jpg',
-    weapon: 'سيف ودرع ثقيل (Sword & Shield / Spear)',
-    role: 'درع بشري متين وهجوم دفاعي',
-    desc: 'السيّاف هو البطل الصلب الذي يتصدى لأعنف ضربات الأعداء! يمتلك أضخم صحة (HP) وأعلى دفاع، مع مهارات صد الهجمات (Accuracy / Shield) وحماية فريق النقابة في حروب القلعة.',
+    weapon: 'سيف ودرع ثقيل (Sword & Shield)',
+    role: 'الدرع البشري المتين وحامي الفريق',
+    desc: 'السيّاف هو الحصن المنيع الذي يتحمل أشرس الضربات! يمتلك أضخم معدل صحة (HP) وأعلى دفاع باللعبة، مع مهارات حجب الهجمات وقيادة الصفوف الأولى في حروب القلعة.',
     stats: { attack: 80, defense: 100, speed: 65, difficulty: 50 },
     highlights: [
       'أعلى معدل دفاع وصحة (HP) في اللعبة',
       'استخدام الدرع لحجب وصد ضربات الخصوم',
-      'دعم اساسي وحماية الفئات الأخرى في حروب القلعة'
+      'دعم أساسي وحماية الفئات الأخرى في حروب القلعة'
     ],
     theme: 'border-cyan-500/50 bg-gradient-to-r from-cyan-400 to-sky-500',
-    badge: 'bg-cyan-500/10 text-cyan-300 border-cyan-500/30',
-    glowColor: 'from-cyan-500/30 via-sky-500/10 to-transparent',
+    badge: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40',
     accentColor: '#06b6d4',
+    glowGradient: 'from-cyan-600/30 via-sky-500/10 to-transparent',
   },
   {
     id: 'archer',
-    name: 'الرامي الأسطوري (Archer)',
+    name: 'الرامي',
+    englishName: 'ARCHER',
     icon: Crosshair,
-    cardImg: '/classes/gjsbtnnormal.jpg',
-    cardClickImg: '/classes/gjsbtnclick.jpg',
     portraitImg: '/classes/zygspic.jpg',
     avatarImg: '/classes/newgslwt.jpg',
     modelRender: '/classes/hero_archer.jpg',
     weapon: 'قوس وكيفر السهام (Bow & Arrows)',
-    role: 'هجوم بعيد المدى وسريع وتجميع الجواهر',
-    desc: 'الرامي يصطاد أهدافه من مسافات بعيدة بسهامه القاتلة. يمتلك أفضل قدرة على إطلاق المطر السهمي (Scatter Strike) لتجميع الـ CPs وقتل الوحوش وتصفية الخرائط بسرعة خرافية.',
+    role: 'صياد الوحوش السريع والقتال البعيد',
+    desc: 'الرامي يصطاد أهدافه بسهام قاتلة من مسافات أمان بعيدة. يمتلك مهارة المطر السهمي (Scatter Strike) التي تقضي على أرتال الوحوش وتجمّع الـ CPs بأعلى سرعة خرافية باللعبة.',
     stats: { attack: 85, defense: 50, speed: 100, difficulty: 70 },
     highlights: [
-      'مهارة المطر السهمي إصابة عشرات الأهداف (Scatter)',
-      'أسرع فئة في تجميع الـ CPs وقتل الوحوش والـ Level Up',
-      'مناورة سريعة وقتال أمان عن بعد'
+      'مهارة المطر السهمي لإصابة عشرات الأهداف (Scatter)',
+      'أسرع فئة في تجميع الـ CPs وقتل الوحوش ورفع الـ Level',
+      'مناورة سريعة وركض خاطف أمان عن بعد'
     ],
     theme: 'border-emerald-500/50 bg-gradient-to-r from-emerald-400 to-teal-500',
-    badge: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30',
-    glowColor: 'from-emerald-500/30 via-teal-500/10 to-transparent',
+    badge: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40',
     accentColor: '#10b981',
+    glowGradient: 'from-emerald-600/30 via-teal-500/10 to-transparent',
   },
   {
     id: 'fire_taoist',
-    name: 'الحاوي النار (Fire Taoist)',
+    name: 'حاوي النار',
+    englishName: 'FIRE TAOIST',
     icon: Flame,
-    cardImg: '/classes/hdbtnnormal.jpg',
-    cardClickImg: '/classes/hdbtnclick.jpg',
     portraitImg: '/classes/zyhdpic.jpg',
     avatarImg: '/classes/newhdlwt.jpg',
     modelRender: '/classes/hero_fire_taoist.jpg',
-    weapon: 'عصا السحر وكرة النار (Backsword & Fire Magic)',
-    role: 'سحر النار المباشر وتفجير الخصوم',
-    desc: 'سيد السحر الناري الصاعق! يطلق الكرات النارية والانفجارات المتتالية التي تلحق أضراراً سحرية هائلة بأرتال الأعداء من مسافات بعيدة.',
+    weapon: 'عصا السحر وكرة النار (Fire Backsword)',
+    role: 'سيد السحر الناري والضررات المساحية',
+    desc: 'سيد الانفجارات السحرية الصاعقة! يطلق الكرات النارية والنيازك الحارقة التي تسحق تشكيلات الأعداء وتدمر خطوط القتال الخلفية في حرب النقابات.',
     stats: { attack: 100, defense: 45, speed: 75, difficulty: 75 },
     highlights: [
-      'أعلى ضرر سحري تفجيري في اللعبة (Fire Meteor)',
-      'تدمير خطوط دفاع الأعداء في حروب القلعة',
-      'مهارات النيران المتسلسلة والمساحية'
+      'أعلى ضرر سحري تفجيري مساحي (Fire Meteor)',
+      'تدمير تكتلات الأعداء في حروب القلعة',
+      'مهارات النيران المتسلسلة القاتلة'
     ],
     theme: 'border-red-500/50 bg-gradient-to-r from-red-500 to-rose-600',
-    badge: 'bg-red-500/10 text-red-300 border-red-500/30',
-    glowColor: 'from-red-500/30 via-rose-500/10 to-transparent',
+    badge: 'bg-red-500/15 text-red-300 border-red-500/40',
     accentColor: '#ef4444',
+    glowGradient: 'from-red-600/30 via-rose-500/10 to-transparent',
   },
   {
     id: 'water_taoist',
-    name: 'الحاوي الماء (Water Taoist)',
+    name: 'حاوي الماء',
+    englishName: 'WATER TAOIST',
     icon: Sparkles,
-    cardImg: '/classes/dsbtnnormal.jpg',
-    cardClickImg: '/classes/dsbtnclick.jpg',
     portraitImg: '/classes/zydspic.jpg',
     avatarImg: '/classes/newdslwt.jpg',
     modelRender: '/classes/hero_water_taoist.jpg',
-    weapon: 'عصا الشفاء وطلاسم الحياة (Backsword & Talismans)',
-    role: 'الشفاء الخارق والإحياء ورفع الـ EXP',
-    desc: 'عماد أي فريق في Conquer! يمتلك القدرة الأسطورية على إعادة إحياء الموتى فوراً (Resurrect)، مع الشفاء الكامل وزيادة سرعة كسب الخبرة الـ EXP.',
+    weapon: 'عصا الشفاء والطلاسم (Talismans & Staff)',
+    role: 'الشفاء الخارق وإعادة الإحياء',
+    desc: 'قلب الفريق النابض باللعبة! يمتلك المهارة الأسطورية لإعادة إحياء الأبطال فوراً (Resurrect)، مع الشفاء التام وزيادة سرعة اكتساب الخبرة الـ EXP.',
     stats: { attack: 60, defense: 80, speed: 70, difficulty: 80 },
     highlights: [
       'إعادة إحياء الأبطال الميتين فوراً (Resurrect)',
-      'علاج وشحن طاقة الفريق والصحة كاملة (Healing)',
-      'عنصر لا غنى عنه في حروب النقابات'
+      'علاج وشحن صحة وطاقة الفريق بالكامل',
+      'عنصر لا غنى عنه مطلقاً في حروب النقابات'
     ],
     theme: 'border-purple-500/50 bg-gradient-to-r from-purple-400 to-indigo-500',
-    badge: 'bg-purple-500/10 text-purple-300 border-purple-500/30',
-    glowColor: 'from-purple-500/30 via-indigo-500/10 to-transparent',
+    badge: 'bg-purple-500/15 text-purple-300 border-purple-500/40',
     accentColor: '#a855f7',
+    glowGradient: 'from-purple-600/30 via-indigo-500/10 to-transparent',
   },
   {
     id: 'ninja',
-    name: 'النينجا الظل (Ninja)',
+    name: 'النينجا',
+    englishName: 'NINJA',
     icon: Zap,
-    cardImg: '/classes/rzbtnnormal.jpg',
-    cardClickImg: '/classes/rzbtnclick.jpg',
     portraitImg: '/classes/zyrzpic.jpg',
     avatarImg: '/classes/newrzlwt.jpg',
     modelRender: '/classes/hero_ninja.jpg',
-    weapon: 'خناجر الموت المزدوجة (Dual Katana)',
-    role: 'اغتيال خاطف واختفاء وسرعة مرعبة',
-    desc: 'سيد الظلال والسرعة في المعارك! يضرب من حيث لا يعلم الخصم باستخدام خناجره السريعة ومهارات التخفي والضباب وضربة الموت الخاطفة (Toxic Fog & Fatal Strike).',
+    weapon: 'خناجر الكاتانا المزدوجة (Dual Katana)',
+    role: 'الاغتيال الخاطف والاختفاء وسرعة الحركة',
+    desc: 'سيد الظلال والسرعة المرعبة! يباغت الأعداء من حيث لا يشعرون باستخدام مهارات الضباب السام والاختفاء وضربة الموت الحاسمة (Fatal Strike).',
     stats: { attack: 95, defense: 55, speed: 95, difficulty: 85 },
     highlights: [
       'مهارات الاختفاء والضباب السام (Toxic Fog)',
-      'ضربات خاطفة وقوة اغتيال مرعبة بلمسة واحدة',
-      'سرعة فائقة في الركض والمناورة'
+      'ضربات خاطفة واغتيال مرعب بلمسة واحدة',
+      'سرعة فائقة جداً في الركض والمناورة'
     ],
     theme: 'border-rose-500/50 bg-gradient-to-r from-rose-500 to-pink-600',
-    badge: 'bg-rose-500/10 text-rose-300 border-rose-500/30',
-    glowColor: 'from-rose-500/30 via-pink-500/10 to-transparent',
+    badge: 'bg-rose-500/15 text-rose-300 border-rose-500/40',
     accentColor: '#f43f5e',
+    glowGradient: 'from-rose-600/30 via-pink-500/10 to-transparent',
   },
   {
     id: 'monk',
-    name: 'الراهب المقدس (Monk)',
+    name: 'الراهب',
+    englishName: 'MONK',
     icon: Crown,
-    cardImg: '/classes/lsbtnnormal.jpg',
-    cardClickImg: '/classes/lsbtnclick.jpg',
     portraitImg: '/classes/zylspic.jpg',
     avatarImg: '/classes/newlslwt.jpg',
     modelRender: '/classes/hero_monk.jpg',
-    weapon: 'عصا الراهب والتسبيح (Prayer Beads & Staff)',
-    role: 'تطهير اللعنات وحماية الفريق وتقوية الهجوم',
-    desc: 'الراهب هو حامي الأبطال ومطهر اللعنات! يمتلك هجمات القتال القريب القوية بمهارات التسبيح التي تبطل السموم واللعنات وتمنح دروعاً دفاعية صلبة.',
+    weapon: 'عصا التسبيح والخرز (Prayer Beads)',
+    role: 'تطهير اللعنات ودعم دفاع الفريق',
+    desc: 'البطل المقدس وحامي الفريق! يمتلك هجمات القتال القريب الموزونة مع قدرة تطهير اللعنات والسموم وإبطال السحر ورش بوفات الحماية لأعضاء النقابة.',
     stats: { attack: 85, defense: 85, speed: 75, difficulty: 65 },
     highlights: [
-      'إزالة وتطهير تأثير السموم واللعنات (Radiance)',
-      'هجمات كومبو مقدسة وموزونة',
-      'دروع حماية ومكافآت قوة هجومية لأعضاء الفريق'
+      'تطهير وإزالة اللعنات والسموم فوراً (Radiance)',
+      'هجمات كومبو قتالية متوازنة وقوية',
+      'دروع حماية ومكافآت قوة لأفراد التيم'
     ],
     theme: 'border-amber-500/50 bg-gradient-to-r from-amber-400 to-yellow-500',
-    badge: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
-    glowColor: 'from-amber-500/30 via-yellow-500/10 to-transparent',
+    badge: 'bg-amber-500/15 text-amber-300 border-amber-500/40',
     accentColor: '#eab308',
+    glowGradient: 'from-amber-600/30 via-yellow-500/10 to-transparent',
   },
   {
     id: 'pirate',
-    name: 'القرصان (Pirate)',
+    name: 'القرصان',
+    englishName: 'PIRATE',
     icon: Anchor,
-    cardImg: '/classes/xkbtnnormal.jpg',
-    cardClickImg: '/classes/xkbtnclick.jpg',
     portraitImg: '/classes/zyxkpic.jpg',
     avatarImg: '/classes/newxklwt.jpg',
     modelRender: '/classes/hero_pirate.jpg',
-    weapon: 'مسدسات وسيف القرصان (Rapier & Pistols)',
+    weapon: 'مسدسات وسيف القرصان (Pistols & Rapier)',
     role: 'قتال هجين قريب وبعيد مع ضرر حاسم',
-    desc: 'سيد البحار والمغامرات! يجمع بين السيف السريع والرمي بالمسدسات النارية من مسافة متدرجة مع مهارات القنابل والدخان الناري.',
+    desc: 'سيد البحار والمغامرات الشرسة! يجمع بين المبارزة القريبة بسيف السايف والرمي بالمسدسات النارية المتتالية مع القنابل الدخانية.',
     stats: { attack: 90, defense: 65, speed: 85, difficulty: 75 },
     highlights: [
-      'أسلوب قتال مزدوج قريب بالسيف وبعيد بالمسدس',
-      'مهارات القنابل والمتفجرات الدخانية',
-      'ضررات حاسمة متتالية وطلاقة حركة'
+      'أسلوب قتال هجين بالسيف والمسدسات',
+      'مهارات القنابل والدخان المتفجر',
+      'ضررات حاسمة متتالية وطلاقة حركة عالية'
     ],
     theme: 'border-sky-500/50 bg-gradient-to-r from-sky-400 to-blue-500',
-    badge: 'bg-sky-500/10 text-sky-300 border-sky-500/30',
-    glowColor: 'from-sky-500/30 via-blue-500/10 to-transparent',
+    badge: 'bg-sky-500/15 text-sky-300 border-sky-500/40',
     accentColor: '#0ea5e9',
+    glowGradient: 'from-sky-600/30 via-blue-500/10 to-transparent',
   },
   {
     id: 'windwalker',
-    name: 'محارب الرياح (Windwalker)',
+    name: 'محارب الرياح',
+    englishName: 'WINDWALKER',
     icon: Wind,
-    cardImg: '/classes/wsbtnnormal.jpg',
-    cardClickImg: '/classes/wsbtnclick.jpg',
     portraitImg: '/classes/zywspic.jpg',
     avatarImg: '/classes/newwslwt.jpg',
     modelRender: '/classes/hero_windwalker.jpg',
     weapon: 'مراوح الرياح والمخالب (Fan & Claws)',
-    role: 'السرعة الفائقة والشفاء الذاتي والأعاصير',
-    desc: 'مقاتل الأعاصير الخاطف! يمتلك أسرع معدل حركات متتالية ومهارات تحويل الضرر إلى صحة ومهارات العاصفة الهوائية.',
+    role: 'سرعة الأعاصير والشفاء الذاتي',
+    desc: 'مقاتل الأعاصير الخاطف! يمتلك أسرع معدل حركات متتالية بمهارات المروحة وتحويل الضرر الموجه إليه إلى صحة وامتصاص الدماء.',
     stats: { attack: 92, defense: 70, speed: 100, difficulty: 80 },
     highlights: [
-      'أسرع تحركات ومهارات الاندفاع الخاطف (Chaser)',
+      'أسرع حركات واندفاع خاطف في النزالات (Chaser)',
       'سحر الأعاصير الجوية وامتصاص الصحة',
-      'مرونة وتأقلم عالي في معارك الـ PK'
+      'مرونة وتأقلم خرافي في معارك الـ PK'
     ],
     theme: 'border-teal-500/50 bg-gradient-to-r from-teal-400 to-emerald-500',
-    badge: 'bg-teal-500/10 text-teal-300 border-teal-500/30',
-    glowColor: 'from-teal-500/30 via-emerald-500/10 to-transparent',
+    badge: 'bg-teal-500/15 text-teal-300 border-teal-500/40',
     accentColor: '#14b8a6',
+    glowGradient: 'from-teal-600/30 via-emerald-500/10 to-transparent',
   },
   {
     id: 'dragon',
-    name: 'التنين المقاتل (Dragon Warrior)',
+    name: 'التنين',
+    englishName: 'DRAGON WARRIOR',
     icon: Compass,
-    cardImg: '/classes/tsbtnnormal.jpg',
-    cardClickImg: '/classes/tsbtnclick.jpg',
     portraitImg: '/classes/zytspic.jpg',
     avatarImg: '/classes/newtslwt.jpg',
     modelRender: '/classes/hero_dragon.jpg',
-    weapon: 'النونشاكو وقبضات التنين (Nunchaku & Fists)',
-    role: 'قتال الكونغ فو الشرس والضرر المتتابع',
-    desc: 'أسطورة القتال الفردي والكونغ فو بروح التنين! يمتلك أسرع ضربات قاضية متتابعة بدون توقف ومهارات غضب التنين القاتلة.',
+    weapon: 'النونشاكو وقبضات التنين (Nunchaku)',
+    role: 'قتال الكونغ فو والضرر التتابعي الشرس',
+    desc: 'أسطورة القتال الفردي بروح التنين! يمتلك ضربات النونشاكو الخاطفة والمتتالية بدون توقف مع مهارات اختراق دروع الخصم وسحقه.',
     stats: { attack: 98, defense: 75, speed: 95, difficulty: 85 },
     highlights: [
       'ضربات نونشاكو خاطفة متتالية (Nunchaku Combo)',
-      'غضب التنين وسحق دروع الخصم',
-      'سيطرة كاملة في النزالات الفردية 1v1'
+      'غضب التنين وسحق دروع الأعداء',
+      'سيطرة مطلقة في مبارزات الـ 1v1'
     ],
     theme: 'border-yellow-500/50 bg-gradient-to-r from-amber-500 to-orange-500',
-    badge: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
-    glowColor: 'from-amber-500/30 via-orange-500/10 to-transparent',
+    badge: 'bg-amber-500/15 text-amber-300 border-amber-500/40',
     accentColor: '#f59e0b',
+    glowGradient: 'from-amber-600/30 via-orange-500/10 to-transparent',
   }
 ];
 
@@ -242,203 +232,260 @@ export default function ClassesShowcase() {
   const ClassIcon = activeClass.icon;
 
   return (
-    <section id="classes" className="py-16 sm:py-20 lg:py-28 bg-[#040711] relative overflow-hidden">
+    <section id="classes" className="py-16 sm:py-24 lg:py-32 bg-[#030611] relative overflow-hidden select-none">
 
-      {/* Dynamic Background Ambient Glow */}
+      {/* Dynamic Background Spotlight Ambient */}
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] blur-[120px] sm:blur-[150px] pointer-events-none transition-all duration-700 opacity-25 rounded-full"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] sm:w-[800px] h-[450px] sm:h-[800px] blur-[140px] sm:blur-[180px] pointer-events-none transition-all duration-1000 opacity-20 rounded-full"
         style={{ backgroundColor: activeClass.accentColor }}
       ></div>
+
+      {/* Grid Pattern Vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
 
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#0b101f] border border-cyan-500/30 text-cyan-400 text-[11px] sm:text-xs font-bold mb-3 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
-            <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-400 animate-pulse" /> IN-GAME HERO MODELS & CLASSES <Snowflake className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400" />
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#090e1c] border border-cyan-500/30 text-cyan-400 text-xs font-black mb-3 shadow-[0_0_20px_rgba(0,240,255,0.2)]">
+            <Award className="w-4 h-4 text-amber-400 animate-pulse" /> AAA IN-GAME HERO SHOWCASE <Sparkles className="w-4 h-4 text-cyan-400" />
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
-            مجسمات وأبطال اللعبة الرسمية{' '}
+            استعرض أبطال ومجسمات{' '}
             <span dir="ltr" className="inline-flex items-center gap-1.5 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-orange-500 font-sans">
               EQUINOX VS
             </span>
           </h2>
-          <p className="text-slate-400 mt-2 sm:mt-3 text-sm sm:text-xl font-medium max-w-2xl mx-auto">
-            اختر بطل معركتك واستعرض المجسم البطولي الحقيقي والتفاصيل الكاملة من أصل اللعبة
+          <p className="text-slate-400 mt-2 sm:mt-3 text-sm sm:text-lg font-bold max-w-2xl mx-auto">
+            اختر البطل المفضل لديك واستكشف المجسم البطولي المباشر، الأسلحة القتالية، والمواصفات الكاملة
           </p>
         </div>
 
-        {/* Class Selection Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3.5 mb-8 sm:mb-12 max-w-full overflow-x-auto pb-2 no-scrollbar">
-          {classesData.map((cls) => {
-            const isActive = activeClass.id === cls.id;
-            return (
-              <button
-                key={cls.id}
-                onClick={() => setActiveClass(cls)}
-                className={`group px-3 py-2 sm:px-4 sm:py-3 rounded-2xl font-black text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer border backdrop-blur-xl relative overflow-hidden shrink-0 ${
-                  isActive
-                    ? 'bg-gradient-to-r from-cyan-500/90 via-sky-500/90 to-blue-600/90 text-white border-white/50 shadow-[0_0_25px_rgba(0,240,255,0.45)] scale-105 z-10'
-                    : 'bg-[#0a0f1d]/90 text-slate-300 border-slate-800/80 hover:text-white hover:border-cyan-500/50 hover:bg-[#11182d]'
-                }`}
-              >
-                {/* Official Game Avatar Thumbnail */}
-                <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full overflow-hidden border shrink-0 transition-transform duration-300 ${
-                  isActive ? 'border-amber-300 scale-110 shadow-lg' : 'border-slate-700 opacity-80 group-hover:opacity-100'
-                }`}>
-                  <Image
-                    src={cls.avatarImg}
-                    alt={cls.name}
-                    width={32}
-                    height={32}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <span>{cls.name.split(' ')[0]}</span>
-              </button>
-            );
-          })}
+        {/* Sleek Horizontal Tab Selector with Avatars & Distinct Titles */}
+        <div className="mb-10 sm:mb-14">
+          <div className="flex items-center justify-start sm:justify-center gap-2.5 sm:gap-3 overflow-x-auto pb-4 pt-1 no-scrollbar px-1">
+            {classesData.map((cls) => {
+              const isActive = activeClass.id === cls.id;
+              return (
+                <button
+                  key={cls.id}
+                  onClick={() => setActiveClass(cls)}
+                  className={`group relative px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-2xl font-black text-xs sm:text-sm transition-all duration-300 flex items-center gap-2.5 shrink-0 cursor-pointer border backdrop-blur-2xl ${
+                    isActive
+                      ? 'bg-[#0f172a] text-white border-amber-400/80 shadow-[0_0_30px_rgba(0,240,255,0.35)] scale-105 z-10'
+                      : 'bg-[#070b16]/80 text-slate-400 border-slate-800/80 hover:text-slate-100 hover:border-slate-700 hover:bg-[#0c1222]'
+                  }`}
+                  style={isActive ? { borderColor: cls.accentColor } : {}}
+                >
+                  {/* Top Active Indicator Light */}
+                  {isActive && (
+                    <span
+                      className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full shadow-[0_0_12px] transition-all"
+                      style={{ backgroundColor: cls.accentColor, boxShadow: `0 0 12px ${cls.accentColor}` }}
+                    ></span>
+                  )}
+
+                  {/* Character Avatar Circle */}
+                  <div
+                    className={`w-7 h-7 sm:w-9 sm:h-9 rounded-full overflow-hidden border-2 shrink-0 transition-transform duration-300 ${
+                      isActive ? 'border-amber-300 scale-110 shadow-md' : 'border-slate-700 opacity-70 group-hover:opacity-100'
+                    }`}
+                  >
+                    <Image
+                      src={cls.avatarImg}
+                      alt={cls.name}
+                      width={36}
+                      height={36}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+
+                  {/* Class Name */}
+                  <span className="whitespace-nowrap font-black">{cls.name}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Selected Class Hero Model Display Card */}
-        <div className="p-5 sm:p-8 lg:p-12 rounded-3xl bg-[#0a0e1a]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center relative overflow-hidden">
+        {/* Hero Showcase Main Stage Card */}
+        <div className="p-6 sm:p-10 lg:p-14 rounded-3xl bg-[#070b16]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_25px_80px_rgba(0,0,0,0.9)] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center relative overflow-hidden">
 
-          {/* Glowing Corner Accents */}
-          <div className="absolute top-0 right-0 w-60 sm:w-80 h-60 sm:h-80 bg-gradient-to-bl from-cyan-500/20 to-transparent blur-[80px] pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 w-60 sm:w-80 h-60 sm:h-80 bg-gradient-to-tr from-orange-500/20 to-transparent blur-[80px] pointer-events-none"></div>
+          {/* Background Ambient Glows inside Stage */}
+          <div
+            className="absolute -top-24 -right-24 w-96 h-96 blur-[120px] pointer-events-none opacity-25"
+            style={{ backgroundColor: activeClass.accentColor }}
+          ></div>
+          <div
+            className="absolute -bottom-24 -left-24 w-96 h-96 blur-[120px] pointer-events-none opacity-25"
+            style={{ backgroundColor: activeClass.accentColor }}
+          ></div>
 
-          {/* Right Column (RTL): In-Game 3D Hero Model Showcase Frame */}
-          <div className="lg:col-span-6 flex flex-col items-center justify-center relative">
+          {/* Right Side (RTL): Dazzling Hero Model Display Stage */}
+          <div className="lg:col-span-6 relative flex flex-col items-center justify-center min-h-[380px] sm:min-h-[480px]">
 
-            {/* Glowing 3D Hero Card Wrapper */}
-            <div className="w-full relative rounded-3xl overflow-hidden border border-slate-700/80 bg-[#050812] shadow-[0_0_50px_rgba(0,0,0,0.9)] group">
+            {/* Arena Spotlight Aura */}
+            <div
+              className="absolute inset-0 rounded-3xl opacity-20 filter blur-3xl pointer-events-none transition-all duration-700"
+              style={{ backgroundColor: activeClass.accentColor }}
+            ></div>
 
-              {/* Ambient Aura Background */}
+            {/* Hero Stage Arena Backdrop */}
+            <div className="relative w-full h-[360px] sm:h-[460px] rounded-3xl border border-slate-800/90 bg-gradient-to-b from-[#0a0e1e] via-[#050812] to-[#02040a] shadow-[inset_0_0_60px_rgba(0,0,0,0.9)] overflow-hidden flex items-center justify-center group">
+
+              {/* Pedestal Ground Lighting */}
               <div
-                className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500 blur-md pointer-events-none"
+                className="absolute bottom-4 w-3/4 h-12 rounded-full opacity-40 blur-xl pointer-events-none transition-all duration-700"
                 style={{ backgroundColor: activeClass.accentColor }}
               ></div>
 
-              {/* Main Model Showcase Image */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] min-h-[240px] sm:min-h-[300px] overflow-hidden flex items-center justify-center p-2">
+              {/* Pedestal Oval Ring */}
+              <div
+                className="absolute bottom-8 w-2/3 h-10 border-2 rounded-full opacity-30 transform rotate-x-60 pointer-events-none"
+                style={{ borderColor: activeClass.accentColor }}
+              ></div>
+
+              {/* Full Height Character Render Model */}
+              <div className="relative w-full h-full p-4 flex items-center justify-center z-10">
                 <Image
+                  key={activeClass.id}
                   src={activeClass.modelRender}
                   alt={activeClass.name}
                   fill
-                  className="object-contain transform group-hover:scale-105 transition-transform duration-700 drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)]"
+                  className="object-contain p-2 sm:p-4 filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.95)] transform group-hover:scale-105 transition-all duration-700 animate-fadeIn"
                   priority
                 />
               </div>
 
-              {/* In-Game Card Overlay Footnote */}
-              <div className="p-3.5 sm:p-4 bg-gradient-to-t from-[#060913] via-[#090d1c]/90 to-transparent border-t border-slate-800/80 flex items-center justify-between">
+              {/* Top Right Class Tag Badge */}
+              <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-[#050811]/90 border border-slate-700/80 text-white font-black text-xs flex items-center gap-2 backdrop-blur-md z-20 shadow-xl">
+                <ClassIcon className="w-4 h-4" style={{ color: activeClass.accentColor }} />
+                <span dir="ltr" className="font-sans font-black">{activeClass.englishName}</span>
+              </div>
 
-                {/* Official Game Portrait Avatar */}
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden border-2 border-amber-400/80 shadow-[0_0_15px_rgba(245,158,11,0.3)] shrink-0">
+              {/* Bottom In-Game Portrait Avatar Bar */}
+              <div className="absolute bottom-3 inset-x-3 p-3 rounded-2xl bg-[#060a15]/90 border border-slate-800/90 backdrop-blur-md flex items-center justify-between z-20 shadow-2xl">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl overflow-hidden border-2 border-amber-400 shadow-md shrink-0">
                     <Image
                       src={activeClass.portraitImg}
                       alt={activeClass.name}
-                      width={48}
-                      height={48}
+                      width={40}
+                      height={40}
                       className="object-cover w-full h-full"
                     />
                   </div>
                   <div className="text-right">
-                    <h5 className="text-xs sm:text-sm font-black text-white">{activeClass.name.split(' ')[0]}</h5>
-                    <span className="text-[10px] sm:text-[11px] font-bold text-amber-400">مجسم اللعبة الأصلي</span>
+                    <h4 className="text-xs sm:text-sm font-black text-white">{activeClass.name}</h4>
+                    <span className="text-[10px] font-bold text-amber-400">مجسم Conquer Mobile الأصلي</span>
                   </div>
                 </div>
 
-                {/* Badge */}
-                <div dir="ltr" className={`px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-black border font-sans ${activeClass.badge}`}>
-                  Equinox VS
+                <div dir="ltr" className={`px-2.5 py-1 rounded-lg text-[10px] sm:text-xs font-black border font-sans ${activeClass.badge}`}>
+                  EQUINOX v106
                 </div>
-
               </div>
 
             </div>
 
-            {/* Weapon & Role Banner */}
-            <div className="mt-3 sm:mt-4 w-full p-3.5 sm:p-4 rounded-2xl bg-[#070b16] border border-slate-800/90 text-right flex items-center justify-between shadow-inner">
-              <span className="text-xs font-bold text-slate-400">السلاح الرئيسي:</span>
+            {/* Weapon Showcase Bar */}
+            <div className="mt-3.5 w-full p-3.5 rounded-2xl bg-[#060914] border border-slate-800/90 flex items-center justify-between text-right shadow-inner">
+              <span className="text-xs font-bold text-slate-400">السلاح والقتال:</span>
               <span className="text-xs sm:text-sm font-black text-amber-300">{activeClass.weapon}</span>
             </div>
 
           </div>
 
-          {/* Left Column (RTL): Class Description, Details & Stats */}
-          <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-right">
+          {/* Left Side (RTL): Hero Lore & Interactive Statistics */}
+          <div className="lg:col-span-6 space-y-5 text-right">
 
-            <div className="flex items-center gap-3.5 sm:gap-4">
-              <div className="p-3 sm:p-4 rounded-2xl bg-[#12192d] border border-white/10 shadow-[inset_0_2px_10px_rgba(255,255,255,0.05)] shrink-0">
-                <ClassIcon className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400" />
+            {/* Title Header & Badge */}
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="p-3 rounded-2xl bg-[#0d1322] border border-slate-700/80 shadow-lg shrink-0">
+                  <ClassIcon className="w-7 h-7" style={{ color: activeClass.accentColor }} />
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">{activeClass.name}</h3>
+                  <span dir="ltr" className="text-xs font-black text-amber-400 tracking-wider font-sans block mt-0.5">
+                    {activeClass.englishName} • {activeClass.role}
+                  </span>
+                </div>
               </div>
-              <div>
-                <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">{activeClass.name}</h3>
-                <span className={`text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-md inline-block mt-1 border ${activeClass.badge}`}>
-                  {activeClass.role}
-                </span>
-              </div>
+
+              <p className="text-slate-300 text-xs sm:text-base leading-relaxed font-medium mt-3">
+                {activeClass.desc}
+              </p>
             </div>
 
-            <p className="text-slate-300 text-xs sm:text-base leading-relaxed font-medium">
-              {activeClass.desc}
-            </p>
-
-            {/* Class Battle Highlights */}
-            <div className="space-y-2">
-              <h4 className="text-[11px] sm:text-xs font-black text-slate-400 uppercase tracking-wider">مميزات الفئة في ساحات القتال:</h4>
-              <ul className="space-y-1.5 sm:space-y-2">
+            {/* Combat Features */}
+            <div className="space-y-2 pt-1 border-t border-slate-800/80">
+              <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider">مميزات الفئة في معارك الـ PK:</h4>
+              <ul className="space-y-2">
                 {activeClass.highlights.map((h, i) => (
-                  <li key={i} className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 font-bold">
-                    <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full shrink-0 shadow-[0_0_8px_rgba(6,182,212,0.8)]" style={{ backgroundColor: activeClass.accentColor }}></span>
-                    {h}
+                  <li key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200 font-bold">
+                    <span
+                      className="w-2.5 h-2.5 rounded-full shrink-0 shadow-[0_0_10px]"
+                      style={{ backgroundColor: activeClass.accentColor, boxShadow: `0 0 10px ${activeClass.accentColor}` }}
+                    ></span>
+                    <span>{h}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Class Stats Meter Cards */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#060a15] border border-slate-800/90 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 shadow-inner">
+            {/* Combat Statistics meters */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#040711] border border-slate-800/90 space-y-3.5 shadow-inner">
 
               <div>
-                <div className="flex justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">القوة الهجومية (Attack)</span>
-                  <span dir="ltr" className="text-orange-400 font-black">{activeClass.stats.attack}%</span>
+                <div className="flex justify-between text-xs font-black mb-1">
+                  <span className="text-slate-300">القوة الهجومية (Attack)</span>
+                  <span dir="ltr" className="text-orange-400 font-sans">{activeClass.stats.attack}%</span>
                 </div>
-                <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
-                  <div className="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.attack}%` }}></div>
+                <div className="h-2 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
+                  <div
+                    className="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full transition-all duration-700"
+                    style={{ width: `${activeClass.stats.attack}%` }}
+                  ></div>
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">الصلابة والدفاع (Defense)</span>
-                  <span dir="ltr" className="text-cyan-400 font-black">{activeClass.stats.defense}%</span>
+                <div className="flex justify-between text-xs font-black mb-1">
+                  <span className="text-slate-300">الصلابة والدفاع (Defense)</span>
+                  <span dir="ltr" className="text-cyan-400 font-sans">{activeClass.stats.defense}%</span>
                 </div>
-                <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
-                  <div className="h-full bg-gradient-to-r from-cyan-400 to-sky-500 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.defense}%` }}></div>
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">السرعة والمناورة (Speed)</span>
-                  <span dir="ltr" className="text-emerald-400 font-black">{activeClass.stats.speed}%</span>
-                </div>
-                <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
-                  <div className="h-full bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.speed}%` }}></div>
+                <div className="h-2 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
+                  <div
+                    className="h-full bg-gradient-to-r from-cyan-400 to-sky-500 rounded-full transition-all duration-700"
+                    style={{ width: `${activeClass.stats.defense}%` }}
+                  ></div>
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">صعوبة الاحتراف (Difficulty)</span>
-                  <span dir="ltr" className="text-purple-400 font-black">{activeClass.stats.difficulty}%</span>
+                <div className="flex justify-between text-xs font-black mb-1">
+                  <span className="text-slate-300">السرعة والمناورة (Speed)</span>
+                  <span dir="ltr" className="text-emerald-400 font-sans">{activeClass.stats.speed}%</span>
                 </div>
-                <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
-                  <div className="h-full bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.difficulty}%` }}></div>
+                <div className="h-2 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
+                  <div
+                    className="h-full bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full transition-all duration-700"
+                    style={{ width: `${activeClass.stats.speed}%` }}
+                  ></div>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between text-xs font-black mb-1">
+                  <span className="text-slate-300">صعوبة الاحتراف (Difficulty)</span>
+                  <span dir="ltr" className="text-purple-400 font-sans">{activeClass.stats.difficulty}%</span>
+                </div>
+                <div className="h-2 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
+                  <div
+                    className="h-full bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full transition-all duration-700"
+                    style={{ width: `${activeClass.stats.difficulty}%` }}
+                  ></div>
                 </div>
               </div>
 
