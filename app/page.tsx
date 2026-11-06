@@ -16,7 +16,7 @@ import { Download, UserPlus, ShieldCheck, LogIn, Swords, Gift, Target } from 'lu
 export default function Home() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const downloadUrl = "http://13.140.221.40:9528/Equinox_VS_13.140.221.40.apk";
+  const downloadUrl = "/Equinox_VS_13.140.221.40.apk";
 
   return (
     <main className="min-h-screen bg-[#050811] text-slate-100 selection:bg-cyan-500 selection:text-black font-sans dir-rtl overflow-x-hidden">
@@ -90,7 +90,9 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 max-w-xl mx-auto">
               <a
                 href={downloadUrl}
-                download
+                download="Equinox_VS_13.140.221.40.apk"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 text-white font-black text-sm sm:text-base shadow-[0_0_30px_rgba(0,240,255,0.4)] hover:shadow-[0_0_45px_rgba(0,240,255,0.7)] transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 border border-white/30"
               >
                 <Download className="w-5 h-5 text-white" />

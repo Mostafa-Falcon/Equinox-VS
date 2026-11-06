@@ -12,7 +12,7 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const downloadUrl = "http://13.140.221.40:9528/Equinox_VS_13.140.221.40.apk";
+  const downloadUrl = "/Equinox_VS_13.140.221.40.apk";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,7 +86,9 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
           {/* Download APK Button */}
           <a
             href={downloadUrl}
-            download
+            download="Equinox_VS_13.140.221.40.apk"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-3.5 py-2.5 rounded-xl bg-[#101828] border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 font-bold text-xs flex items-center gap-2 hover:bg-cyan-500/10 transition-all shadow-[0_0_15px_rgba(0,240,255,0.15)] shrink-0 whitespace-nowrap"
           >
             <Download className="w-4 h-4 text-cyan-400" />
@@ -175,7 +177,9 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
           </button>
           <a
             href={downloadUrl}
-            download
+            download="Equinox_VS_13.140.221.40.apk"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2.5 text-amber-400 font-extrabold px-2 rounded-lg flex items-center justify-between"
           >

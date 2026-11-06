@@ -9,7 +9,7 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenRegister, onOpenLogin }: HeroProps) {
-  const downloadUrl = "http://13.140.221.40:9528/Equinox_VS_13.140.221.40.apk";
+  const downloadUrl = "/Equinox_VS_13.140.221.40.apk";
 
   return (
     <section id="home" className="relative pt-28 sm:pt-36 pb-16 lg:pt-40 lg:pb-28 bg-[#050811] overflow-hidden min-h-[88vh] flex items-center">
@@ -67,7 +67,9 @@ export default function Hero({ onOpenRegister, onOpenLogin }: HeroProps) {
             <div className="flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4 pt-2 max-w-xl">
               <a
                 href={downloadUrl}
-                download
+                download="Equinox_VS_13.140.221.40.apk"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 text-white font-black text-sm sm:text-base shadow-[0_0_30px_rgba(0,240,255,0.45)] hover:shadow-[0_0_45px_rgba(0,240,255,0.75)] transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 border border-white/30"
               >
                 <Download className="w-5 h-5 text-white" />
