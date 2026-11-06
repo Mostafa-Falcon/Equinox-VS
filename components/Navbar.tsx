@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Download, UserPlus, LogIn, Menu, X, Flame, Snowflake, Sparkles } from 'lucide-react';
+import { Download, UserPlus, LogIn, Menu, X, Flame, Snowflake } from 'lucide-react';
 
 interface NavbarProps {
   onOpenRegister: () => void;
@@ -26,15 +26,15 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#050811]/95 backdrop-blur-xl border-b border-cyan-500/20 shadow-[0_10px_30px_rgba(0,0,0,0.9)] py-2.5'
-          : 'bg-gradient-to-b from-[#050811]/95 via-[#050811]/75 to-transparent backdrop-blur-md border-b border-white/5 py-3.5'
+          ? 'bg-[#050811]/95 backdrop-blur-xl border-b border-cyan-500/20 shadow-[0_10px_30px_rgba(0,0,0,0.9)] py-2 sm:py-2.5'
+          : 'bg-gradient-to-b from-[#050811]/95 via-[#050811]/80 to-transparent backdrop-blur-md border-b border-white/5 py-2.5 sm:py-3.5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
 
         {/* Brand Logo & Title */}
-        <a href="#home" className="flex items-center gap-3 shrink-0 group">
-          <div className="relative w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-cyan-400 via-sky-500 to-orange-500 shadow-[0_0_18px_rgba(0,240,255,0.4)] group-hover:scale-105 transition-transform overflow-hidden shrink-0">
+        <a href="#home" className="flex items-center gap-2 sm:gap-3 shrink-0 group">
+          <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full p-0.5 bg-gradient-to-tr from-cyan-400 via-sky-500 to-orange-500 shadow-[0_0_18px_rgba(0,240,255,0.4)] group-hover:scale-105 transition-transform overflow-hidden shrink-0">
             <img
               src="/logo-emblem.jpeg"
               alt="Equinox VS Logo"
@@ -42,7 +42,7 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
             />
           </div>
           <div className="flex flex-col text-right">
-            <span className="text-xl font-black tracking-wide flex items-center gap-1 leading-none font-sans whitespace-nowrap">
+            <span className="text-base sm:text-xl font-black tracking-wide flex items-center gap-1 leading-none font-sans whitespace-nowrap">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-400">
                 EQUINOX
               </span>
@@ -50,14 +50,14 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
                 VS
               </span>
             </span>
-            <span className="text-[9px] font-extrabold tracking-wider text-slate-400 uppercase mt-0.5 whitespace-nowrap">
+            <span className="text-[8px] sm:text-[9px] font-extrabold tracking-wider text-slate-400 uppercase mt-0.5 whitespace-nowrap">
               Conquer Mobile World
             </span>
           </div>
         </a>
 
-        {/* Centered Floating Pill Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-5 px-5 py-2 rounded-full bg-[#0a101f]/90 border border-slate-800 shadow-lg font-bold text-xs text-slate-300 backdrop-blur-xl">
+        {/* Centered Floating Pill Navigation Links for XL Screen */}
+        <nav className="hidden xl:flex items-center gap-4 lg:gap-5 px-5 py-2 rounded-full bg-[#0a101f]/90 border border-slate-800 shadow-lg font-bold text-xs text-slate-300 backdrop-blur-xl">
           <a href="#home" className="hover:text-cyan-400 transition-colors py-1 flex items-center gap-1 shrink-0 whitespace-nowrap">
             <Snowflake className="w-3.5 h-3.5 text-cyan-400" /> الرئيسية
           </a>
@@ -70,7 +70,7 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
           <a href="#download" className="hover:text-orange-400 transition-colors py-1 shrink-0 whitespace-nowrap">التحميل</a>
         </nav>
 
-        {/* Action Buttons & Server Status */}
+        {/* Action Buttons for Large Screens */}
         <div className="hidden lg:flex items-center gap-2 shrink-0">
 
           {/* Player Login / Character Dashboard Button */}
@@ -103,23 +103,24 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
 
         </div>
 
-        {/* Mobile Hamburger Button */}
-        <div className="flex items-center gap-2 lg:hidden shrink-0">
+        {/* Mobile Action Controls & Hamburger Menu */}
+        <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden shrink-0">
           <button
             onClick={onOpenLogin}
-            className="px-3 py-1.5 rounded-xl bg-[#0c1222] border border-cyan-500/40 text-cyan-300 font-bold text-xs shrink-0 whitespace-nowrap"
+            className="px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-xl bg-[#0c1222] border border-cyan-500/40 text-cyan-300 font-bold text-xs shrink-0 whitespace-nowrap cursor-pointer"
           >
             دخول
           </button>
           <button
             onClick={onOpenRegister}
-            className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-xs shrink-0 whitespace-nowrap"
+            className="px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-xs shrink-0 whitespace-nowrap cursor-pointer"
           >
             تسجيل
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-xl bg-[#0d1322] border border-slate-800 text-white shrink-0"
+            className="p-1.5 sm:p-2 rounded-xl bg-[#0d1322] border border-slate-800 text-white shrink-0 cursor-pointer"
+            aria-label="القائمة"
           >
             {mobileMenuOpen ? <X className="w-5 h-5 text-cyan-400" /> : <Menu className="w-5 h-5 text-slate-300" />}
           </button>
@@ -127,16 +128,59 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
 
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu with Backdrop Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#050811]/98 border-b border-cyan-500/30 px-6 py-5 space-y-3 font-bold text-slate-200 backdrop-blur-2xl text-right">
-          <a href="#home" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-cyan-400 border-b border-slate-800/80">الرئيسية</a>
-          <a href="#game-features" onClick={() => setMobileMenuOpen(false)} className="block py-2 hover:text-cyan-400 border-b border-slate-800/80">مميزات اللعبة</a>
-          <a href="#classes" onClick={() => setMobileMenuOpen(false)} className="block py-2 hover:text-orange-400 border-b border-slate-800/80">الأبطال والفئات</a>
-          <a href="#systems" onClick={() => setMobileMenuOpen(false)} className="block py-2 hover:text-cyan-400 border-b border-slate-800/80">أنظمة القتال</a>
-          <a href="#guide" onClick={() => setMobileMenuOpen(false)} className="block py-2 hover:text-cyan-400 border-b border-slate-800/80">طريقة البدء</a>
-          <button onClick={() => { setMobileMenuOpen(false); onOpenLogin(); }} className="block w-full text-right py-2 text-cyan-300 border-b border-slate-800/80">تسجيل الدخول وحسابي</button>
-          <a href="#download" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-orange-400">تحميل اللعبة</a>
+        <div className="lg:hidden fixed inset-x-0 top-[52px] sm:top-[60px] bg-[#050811]/98 border-b border-cyan-500/30 px-5 py-4 space-y-2.5 font-bold text-slate-200 backdrop-blur-2xl text-right shadow-2xl max-h-[82vh] overflow-y-auto">
+          <a
+            href="#home"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2.5 text-cyan-400 border-b border-slate-800/80 hover:bg-slate-900/50 px-2 rounded-lg"
+          >
+            الرئيسية
+          </a>
+          <a
+            href="#game-features"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2.5 hover:text-cyan-400 border-b border-slate-800/80 hover:bg-slate-900/50 px-2 rounded-lg"
+          >
+            مميزات اللعبة
+          </a>
+          <a
+            href="#classes"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2.5 text-orange-400 border-b border-slate-800/80 hover:bg-slate-900/50 px-2 rounded-lg"
+          >
+            الأبطال والمجسمات
+          </a>
+          <a
+            href="#systems"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2.5 hover:text-cyan-400 border-b border-slate-800/80 hover:bg-slate-900/50 px-2 rounded-lg"
+          >
+            أنظمة القتال
+          </a>
+          <a
+            href="#guide"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2.5 hover:text-cyan-400 border-b border-slate-800/80 hover:bg-slate-900/50 px-2 rounded-lg"
+          >
+            طريقة البدء
+          </a>
+          <button
+            onClick={() => { setMobileMenuOpen(false); onOpenLogin(); }}
+            className="block w-full text-right py-2.5 text-cyan-300 border-b border-slate-800/80 hover:bg-slate-900/50 px-2 rounded-lg cursor-pointer"
+          >
+            تسجيل الدخول وحسابي
+          </button>
+          <a
+            href={downloadUrl}
+            download
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2.5 text-amber-400 font-extrabold px-2 rounded-lg flex items-center justify-between"
+          >
+            <span>تحميل اللعبة APK</span>
+            <Download className="w-4 h-4 text-amber-400" />
+          </a>
         </div>
       )}
     </header>

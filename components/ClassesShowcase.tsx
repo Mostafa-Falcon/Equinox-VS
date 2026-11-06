@@ -242,45 +242,45 @@ export default function ClassesShowcase() {
   const ClassIcon = activeClass.icon;
 
   return (
-    <section id="classes" className="py-20 lg:py-28 bg-[#040711] relative overflow-hidden">
+    <section id="classes" className="py-16 sm:py-20 lg:py-28 bg-[#040711] relative overflow-hidden">
 
       {/* Dynamic Background Ambient Glow */}
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] blur-[150px] pointer-events-none transition-all duration-700 opacity-25 rounded-full"
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] blur-[120px] sm:blur-[150px] pointer-events-none transition-all duration-700 opacity-25 rounded-full"
         style={{ backgroundColor: activeClass.accentColor }}
       ></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
 
         {/* Section Header */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0b101f] border border-cyan-500/30 text-cyan-400 text-xs font-bold mb-3 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
-            <Flame className="w-4 h-4 text-orange-400 animate-pulse" /> IN-GAME HERO MODELS & CLASSES <Snowflake className="w-4 h-4 text-cyan-400" />
+        <div className="text-center mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#0b101f] border border-cyan-500/30 text-cyan-400 text-[11px] sm:text-xs font-bold mb-3 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
+            <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-400 animate-pulse" /> IN-GAME HERO MODELS & CLASSES <Snowflake className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400" />
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
             مجسمات وأبطال اللعبة الرسمية <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-orange-500">Equinox VS</span>
           </h2>
-          <p className="text-slate-400 mt-3 text-base sm:text-xl font-medium max-w-2xl mx-auto">
+          <p className="text-slate-400 mt-2 sm:mt-3 text-sm sm:text-xl font-medium max-w-2xl mx-auto">
             اختر بطل معركتك واستعرض المجسم البطولي الحقيقي والتفاصيل الكاملة من أصل اللعبة
           </p>
         </div>
 
-        {/* Class Selection Tabs with In-Game Avatars & Cards */}
-        <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3.5 mb-12">
+        {/* Class Selection Tabs with In-Game Avatars & Scrollable Pills on Mobile */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3.5 mb-8 sm:mb-12 max-w-full overflow-x-auto pb-2 no-scrollbar">
           {classesData.map((cls) => {
             const isActive = activeClass.id === cls.id;
             return (
               <button
                 key={cls.id}
                 onClick={() => setActiveClass(cls)}
-                className={`group px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl font-black text-xs sm:text-sm transition-all duration-300 flex items-center gap-2.5 cursor-pointer border backdrop-blur-xl relative overflow-hidden ${
+                className={`group px-2.5 py-1.5 sm:px-4 sm:py-3 rounded-2xl font-black text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer border backdrop-blur-xl relative overflow-hidden shrink-0 ${
                   isActive
-                    ? 'bg-gradient-to-r from-cyan-500/90 via-sky-500/90 to-blue-600/90 text-white border-white/50 shadow-[0_0_30px_rgba(0,240,255,0.45)] scale-105 z-10'
+                    ? 'bg-gradient-to-r from-cyan-500/90 via-sky-500/90 to-blue-600/90 text-white border-white/50 shadow-[0_0_25px_rgba(0,240,255,0.45)] scale-105 z-10'
                     : 'bg-[#0a0f1d]/90 text-slate-300 border-slate-800/80 hover:text-white hover:border-cyan-500/50 hover:bg-[#11182d]'
                 }`}
               >
                 {/* Official Game Avatar Thumbnail */}
-                <div className={`w-8 h-8 rounded-full overflow-hidden border shrink-0 transition-transform duration-300 ${
+                <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full overflow-hidden border shrink-0 transition-transform duration-300 ${
                   isActive ? 'border-amber-300 scale-110 shadow-lg' : 'border-slate-700 opacity-80 group-hover:opacity-100'
                 }`}>
                   <Image
@@ -298,11 +298,11 @@ export default function ClassesShowcase() {
         </div>
 
         {/* Selected Class Hero Model Display Card */}
-        <div className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-[#0a0e1a]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative overflow-hidden">
+        <div className="p-4 sm:p-8 lg:p-12 rounded-3xl bg-[#0a0e1a]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center relative overflow-hidden">
 
           {/* Glowing Corner Accents */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-cyan-500/20 to-transparent blur-[90px] pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-500/20 to-transparent blur-[90px] pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-60 sm:w-80 h-60 sm:h-80 bg-gradient-to-bl from-cyan-500/20 to-transparent blur-[80px] pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-60 sm:w-80 h-60 sm:h-80 bg-gradient-to-tr from-orange-500/20 to-transparent blur-[80px] pointer-events-none"></div>
 
           {/* Right Column (RTL): In-Game 3D Hero Model Showcase Frame */}
           <div className="lg:col-span-6 flex flex-col items-center justify-center relative">
@@ -317,7 +317,7 @@ export default function ClassesShowcase() {
               ></div>
 
               {/* Main Model Showcase Image */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden flex items-center justify-center p-2">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] min-h-[220px] sm:min-h-[300px] overflow-hidden flex items-center justify-center p-2">
                 <Image
                   src={activeClass.modelRender}
                   alt={activeClass.name}
@@ -328,11 +328,11 @@ export default function ClassesShowcase() {
               </div>
 
               {/* In-Game Card Overlay Footnote */}
-              <div className="p-4 bg-gradient-to-t from-[#060913] via-[#090d1c]/90 to-transparent border-t border-slate-800/80 flex items-center justify-between">
+              <div className="p-3 sm:p-4 bg-gradient-to-t from-[#060913] via-[#090d1c]/90 to-transparent border-t border-slate-800/80 flex items-center justify-between">
 
                 {/* Official Game Portrait Avatar */}
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl overflow-hidden border-2 border-amber-400/80 shadow-[0_0_15px_rgba(245,158,11,0.3)] shrink-0">
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden border-2 border-amber-400/80 shadow-[0_0_15px_rgba(245,158,11,0.3)] shrink-0">
                     <Image
                       src={activeClass.portraitImg}
                       alt={activeClass.name}
@@ -342,13 +342,13 @@ export default function ClassesShowcase() {
                     />
                   </div>
                   <div className="text-right">
-                    <h5 className="text-sm font-black text-white">{activeClass.name.split(' ')[0]}</h5>
-                    <span className="text-[11px] font-bold text-amber-400">مجسم اللعبة الأصلي (In-Game Model)</span>
+                    <h5 className="text-xs sm:text-sm font-black text-white">{activeClass.name.split(' ')[0]}</h5>
+                    <span className="text-[10px] sm:text-[11px] font-bold text-amber-400">مجسم اللعبة الأصلي</span>
                   </div>
                 </div>
 
                 {/* Badge */}
-                <div className={`px-3 py-1 rounded-full text-xs font-black border ${activeClass.badge}`}>
+                <div className={`px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-black border ${activeClass.badge}`}>
                   Equinox VS
                 </div>
 
@@ -357,39 +357,39 @@ export default function ClassesShowcase() {
             </div>
 
             {/* Weapon & Role Banner */}
-            <div className="mt-4 w-full p-4 rounded-2xl bg-[#070b16] border border-slate-800/90 text-right flex items-center justify-between shadow-inner">
-              <span className="text-xs font-bold text-slate-400">سلاح الفئة الرئيسي:</span>
+            <div className="mt-3 sm:mt-4 w-full p-3 sm:p-4 rounded-2xl bg-[#070b16] border border-slate-800/90 text-right flex items-center justify-between shadow-inner">
+              <span className="text-[11px] sm:text-xs font-bold text-slate-400">السلاح الرئيسي:</span>
               <span className="text-xs sm:text-sm font-black text-amber-300">{activeClass.weapon}</span>
             </div>
 
           </div>
 
           {/* Left Column (RTL): Class Description, Details & Stats */}
-          <div className="lg:col-span-6 space-y-6 text-right">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-right">
 
-            <div className="flex items-center gap-4">
-              <div className="p-4 rounded-2xl bg-[#12192d] border border-white/10 shadow-[inset_0_2px_10px_rgba(255,255,255,0.05)]">
-                <ClassIcon className="w-8 h-8 text-cyan-400" />
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="p-3 sm:p-4 rounded-2xl bg-[#12192d] border border-white/10 shadow-[inset_0_2px_10px_rgba(255,255,255,0.05)] shrink-0">
+                <ClassIcon className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400" />
               </div>
               <div>
-                <h3 className="text-3xl sm:text-4xl font-black text-white tracking-tight">{activeClass.name}</h3>
-                <span className={`text-xs font-bold px-3 py-1 rounded-md inline-block mt-1.5 border ${activeClass.badge}`}>
+                <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">{activeClass.name}</h3>
+                <span className={`text-[10px] sm:text-xs font-bold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-md inline-block mt-1 border ${activeClass.badge}`}>
                   {activeClass.role}
                 </span>
               </div>
             </div>
 
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-medium">
+            <p className="text-slate-300 text-xs sm:text-base leading-relaxed font-medium">
               {activeClass.desc}
             </p>
 
             {/* Class Battle Highlights */}
-            <div className="space-y-2.5">
-              <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider">مميزات الفئة في ساحات القتال:</h4>
-              <ul className="space-y-2">
+            <div className="space-y-2">
+              <h4 className="text-[11px] sm:text-xs font-black text-slate-400 uppercase tracking-wider">مميزات الفئة في ساحات القتال:</h4>
+              <ul className="space-y-1.5 sm:space-y-2">
                 {activeClass.highlights.map((h, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200 font-bold">
-                    <span className="w-2.5 h-2.5 rounded-full shrink-0 shadow-[0_0_8px_rgba(6,182,212,0.8)]" style={{ backgroundColor: activeClass.accentColor }}></span>
+                  <li key={i} className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 font-bold">
+                    <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full shrink-0 shadow-[0_0_8px_rgba(6,182,212,0.8)]" style={{ backgroundColor: activeClass.accentColor }}></span>
                     {h}
                   </li>
                 ))}
@@ -397,44 +397,44 @@ export default function ClassesShowcase() {
             </div>
 
             {/* Class Stats Meter Cards */}
-            <div className="p-5 rounded-2xl bg-[#060a15] border border-slate-800/90 grid grid-cols-1 sm:grid-cols-2 gap-4 shadow-inner">
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#060a15] border border-slate-800/90 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 shadow-inner">
 
               <div>
-                <div className="flex justify-between text-xs font-bold mb-1.5">
+                <div className="flex justify-between text-xs font-bold mb-1">
                   <span className="text-slate-400">القوة الهجومية (Attack)</span>
                   <span className="text-orange-400 font-extrabold">{activeClass.stats.attack}%</span>
                 </div>
-                <div className="h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
+                <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
                   <div className="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.attack}%` }}></div>
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-xs font-bold mb-1.5">
+                <div className="flex justify-between text-xs font-bold mb-1">
                   <span className="text-slate-400">الصلابة والدفاع (Defense)</span>
                   <span className="text-cyan-400 font-extrabold">{activeClass.stats.defense}%</span>
                 </div>
-                <div className="h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
+                <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
                   <div className="h-full bg-gradient-to-r from-cyan-400 to-sky-500 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.defense}%` }}></div>
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-xs font-bold mb-1.5">
+                <div className="flex justify-between text-xs font-bold mb-1">
                   <span className="text-slate-400">السرعة والمناورة (Speed)</span>
                   <span className="text-emerald-400 font-extrabold">{activeClass.stats.speed}%</span>
                 </div>
-                <div className="h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
+                <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
                   <div className="h-full bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.speed}%` }}></div>
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-xs font-bold mb-1.5">
+                <div className="flex justify-between text-xs font-bold mb-1">
                   <span className="text-slate-400">صعوبة الاحتراف (Difficulty)</span>
                   <span className="text-purple-400 font-extrabold">{activeClass.stats.difficulty}%</span>
                 </div>
-                <div className="h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
+                <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
                   <div className="h-full bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.difficulty}%` }}></div>
                 </div>
               </div>
@@ -449,4 +449,3 @@ export default function ClassesShowcase() {
     </section>
   );
 }
-

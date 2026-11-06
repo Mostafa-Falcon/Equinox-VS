@@ -8,12 +8,14 @@
   --font-cairo: 'Cairo', sans-serif;
 }
 
-* {
+*, ::before, ::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -21,11 +23,23 @@ body {
   background-color: #050811;
   color: #f1f5f9;
   overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide horizontal scrollbars for clean tab containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #050811;

@@ -57,10 +57,16 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginMod
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#050811]/85 backdrop-blur-md transition-all">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#050811]/85 backdrop-blur-md transition-all overflow-y-auto"
+    >
 
       {/* Glass Modal Box */}
-      <div className="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-[#0e1424] border border-cyan-500/30 shadow-[0_0_50px_rgba(0,0,0,0.9)] text-right overflow-hidden">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-lg p-5 sm:p-8 rounded-3xl bg-[#0e1424] border border-cyan-500/30 shadow-[0_0_50px_rgba(0,0,0,0.9)] text-right overflow-hidden max-h-[92vh] overflow-y-auto"
+      >
 
         {/* Glow Top Accent */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-sky-500 to-orange-500"></div>
@@ -68,7 +74,7 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginMod
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 left-5 p-1.5 rounded-full bg-[#141d33] border border-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer"
+          className="absolute top-4 left-4 sm:top-5 sm:left-5 p-1.5 rounded-full bg-[#141d33] border border-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer z-10"
         >
           <X className="w-5 h-5" />
         </button>
@@ -76,11 +82,11 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginMod
         {!character ? (
           /* Login Form View */
           <div>
-            <div className="text-center mb-6">
-              <div className="inline-flex p-3 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 mb-2">
-                <User className="w-6 h-6" />
+            <div className="text-center mb-6 pt-2">
+              <div className="inline-flex p-2.5 sm:p-3 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 mb-2">
+                <User className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h2 className="text-2xl font-black text-white">
+              <h2 className="text-xl sm:text-2xl font-black text-white">
                 تسجيل الدخول <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-orange-400">Equinox VS</span>
               </h2>
               <p className="text-xs text-slate-400 mt-1 font-bold">سجل دخولك لعرض أرصدة CPs ومقتنيات شخصيتك</p>
@@ -161,16 +167,16 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginMod
           </div>
         ) : (
           /* Character Dashboard View */
-          <div className="space-y-5">
+          <div className="space-y-4 sm:space-y-5 pt-2">
 
             {/* Header Hero Banner */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500/20 via-sky-500/20 to-orange-500/20 border border-cyan-500/40 text-center relative overflow-hidden">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-cyan-500/20 via-sky-500/20 to-orange-500/20 border border-cyan-500/40 text-center relative overflow-hidden">
               <div className="flex items-center justify-center gap-2 text-cyan-300 text-xs font-extrabold mb-1">
                 <Sparkles className="w-4 h-4 text-amber-400" />
                 <span>لوحة أسطورة بطل Equinox VS</span>
               </div>
-              <h3 className="text-3xl font-black text-white">{character.name}</h3>
-              <div className="flex items-center justify-center gap-3 mt-2 text-xs font-bold text-slate-300">
+              <h3 className="text-2xl sm:text-3xl font-black text-white">{character.name}</h3>
+              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-2 text-xs font-bold text-slate-300">
                 <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                   {character.className}
                 </span>
@@ -183,25 +189,25 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginMod
 
             {/* Currencies Grid */}
             <div>
-              <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider mb-2.5">العملات والمقتنيات (Currencies):</h4>
-              <div className="grid grid-cols-3 gap-2.5">
+              <h4 className="text-[11px] sm:text-xs font-black text-slate-400 uppercase tracking-wider mb-2">العملات والمقتنيات (Currencies):</h4>
+              <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
 
-                <div className="p-3 rounded-xl bg-[#070b14] border border-amber-500/30 text-center">
-                  <Coins className="w-5 h-5 text-amber-400 mx-auto mb-1" />
-                  <div className="text-[10px] text-slate-400 font-bold">الذهب (Gold)</div>
-                  <div className="text-sm font-black text-amber-300 mt-0.5">{character.money.toLocaleString()}</div>
+                <div className="p-2.5 sm:p-3 rounded-xl bg-[#070b14] border border-amber-500/30 text-center">
+                  <Coins className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 mx-auto mb-1" />
+                  <div className="text-[9px] sm:text-[10px] text-slate-400 font-bold">الذهب (Gold)</div>
+                  <div className="text-xs sm:text-sm font-black text-amber-300 mt-0.5 truncate">{character.money.toLocaleString()}</div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-[#070b14] border border-cyan-500/30 text-center">
-                  <Gem className="w-5 h-5 text-cyan-400 mx-auto mb-1" />
-                  <div className="text-[10px] text-slate-400 font-bold">CPs حرة</div>
-                  <div className="text-sm font-black text-cyan-300 mt-0.5">{character.emoney.toLocaleString()}</div>
+                <div className="p-2.5 sm:p-3 rounded-xl bg-[#070b14] border border-cyan-500/30 text-center">
+                  <Gem className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400 mx-auto mb-1" />
+                  <div className="text-[9px] sm:text-[10px] text-slate-400 font-bold">CPs حرة</div>
+                  <div className="text-xs sm:text-sm font-black text-cyan-300 mt-0.5 truncate">{character.emoney.toLocaleString()}</div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-[#070b14] border border-orange-500/30 text-center">
-                  <Shield className="w-5 h-5 text-orange-400 mx-auto mb-1" />
-                  <div className="text-[10px] text-slate-400 font-bold">CPs مقيدة</div>
-                  <div className="text-sm font-black text-orange-300 mt-0.5">{character.boundEmoney.toLocaleString()}</div>
+                <div className="p-2.5 sm:p-3 rounded-xl bg-[#070b14] border border-orange-500/30 text-center">
+                  <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400 mx-auto mb-1" />
+                  <div className="text-[9px] sm:text-[10px] text-slate-400 font-bold">CPs مقيدة</div>
+                  <div className="text-xs sm:text-sm font-black text-orange-300 mt-0.5 truncate">{character.boundEmoney.toLocaleString()}</div>
                 </div>
 
               </div>
@@ -209,31 +215,31 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginMod
 
             {/* Combat Stats Grid */}
             <div>
-              <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider mb-2.5">إحصائيات القتال (Combat Stats):</h4>
-              <div className="grid grid-cols-2 gap-2.5 text-xs font-bold">
+              <h4 className="text-[11px] sm:text-xs font-black text-slate-400 uppercase tracking-wider mb-2">إحصائيات القتال (Combat Stats):</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 text-xs font-bold">
 
-                <div className="p-3 rounded-xl bg-[#070b14] border border-slate-800 flex items-center justify-between">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-[#070b14] border border-slate-800 flex items-center justify-between">
                   <span className="text-slate-400 flex items-center gap-1.5">
                     <Swords className="w-4 h-4 text-cyan-400" /> القوة (BP):
                   </span>
                   <span className="text-cyan-300 font-black">{character.battlePower} BP</span>
                 </div>
 
-                <div className="p-3 rounded-xl bg-[#070b14] border border-slate-800 flex items-center justify-between">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-[#070b14] border border-slate-800 flex items-center justify-between">
                   <span className="text-slate-400 flex items-center gap-1.5">
                     <Target className="w-4 h-4 text-orange-400" /> قتلات الوحوش:
                   </span>
                   <span className="text-orange-400 font-black">{character.mobKills} Kills</span>
                 </div>
 
-                <div className="p-3 rounded-xl bg-[#070b14] border border-slate-800 flex items-center justify-between">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-[#070b14] border border-slate-800 flex items-center justify-between">
                   <span className="text-slate-400 flex items-center gap-1.5">
                     <Shield className="w-4 h-4 text-rose-400" /> نقاط القتل (PK):
                   </span>
                   <span className="text-rose-400 font-black">{character.pk} PK</span>
                 </div>
 
-                <div className="p-3 rounded-xl bg-[#070b14] border border-slate-800 flex items-center justify-between">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-[#070b14] border border-slate-800 flex items-center justify-between">
                   <span className="text-slate-400 flex items-center gap-1.5">
                     <Crown className="w-4 h-4 text-amber-400" /> رتبة الـ VIP:
                   </span>

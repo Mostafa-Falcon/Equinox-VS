@@ -56,49 +56,49 @@ const featuresList = [
 
 export default function Features() {
   return (
-    <section id="game-features" className="py-16 lg:py-20 bg-[#070b14] relative">
+    <section id="game-features" className="py-14 sm:py-20 bg-[#070b14] relative">
 
       {/* Background Subtle Gradient Blobs */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-cyan-500/10 blur-[120px] pointer-events-none"></div>
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-orange-500/10 blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/10 blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-orange-500/10 blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
 
         {/* Section Title */}
-        <div className="text-center mb-12">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-[#0d1322] border border-cyan-500/30 text-cyan-400 text-xs font-bold mb-3">
+        <div className="text-center mb-10 sm:mb-12">
+          <div className="inline-block px-3.5 sm:px-4 py-1.5 rounded-full bg-[#0d1322] border border-cyan-500/30 text-cyan-400 text-xs font-bold mb-3">
             GAME FEATURES & SYSTEMS
           </div>
-          <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
             مميزات وأنظمة عالم <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-sky-400">Equinox</span>{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">VS</span>
           </h2>
-          <p className="text-slate-400 mt-3 text-base sm:text-lg max-w-2xl mx-auto font-medium">
+          <p className="text-slate-400 mt-2 sm:mt-3 text-sm sm:text-lg max-w-2xl mx-auto font-medium">
             كل ما تحتاجه لتجربة قتالية أسطورية وممتعة في Conquer Mobile
           </p>
         </div>
 
         {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {featuresList.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className={`p-7 rounded-3xl bg-[#0e1424]/90 backdrop-blur-xl border ${item.glow} transition-all transform hover:-translate-y-1.5 group shadow-xl relative overflow-hidden flex flex-col justify-between`}
+                className={`p-5 sm:p-7 rounded-3xl bg-[#0e1424]/90 backdrop-blur-xl border ${item.glow} transition-all transform hover:-translate-y-1.5 group shadow-xl relative overflow-hidden flex flex-col justify-between`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="p-3 rounded-2xl bg-[#141d33] border border-white/10 group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6 text-white" />
+                  <div className="flex items-center justify-between mb-4 sm:mb-5">
+                    <div className="p-2.5 sm:p-3 rounded-2xl bg-[#141d33] border border-white/10 group-hover:scale-110 transition-transform">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <span className={`text-xs font-extrabold px-3 py-1 rounded-full border ${item.tagBg}`}>
+                    <span className={`text-[11px] sm:text-xs font-extrabold px-2.5 py-1 sm:px-3 sm:py-1 rounded-full border ${item.tagBg}`}>
                       {item.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-black text-white mb-2.5">{item.title}</h3>
-                  <p className="text-slate-400 leading-relaxed text-sm font-medium">{item.description}</p>
+                  <h3 className="text-xl sm:text-2xl font-black text-white mb-2 sm:mb-2.5">{item.title}</h3>
+                  <p className="text-slate-400 leading-relaxed text-xs sm:text-sm font-medium">{item.description}</p>
                 </div>
               </div>
             );
