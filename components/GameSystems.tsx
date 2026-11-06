@@ -37,24 +37,27 @@ const combatSystemsList = [
 
 export default function GameSystems() {
   return (
-    <section id="systems" className="py-14 sm:py-20 bg-[#070b14] relative">
+    <section id="systems" className="py-16 sm:py-22 bg-[#070b14] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
 
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#0d1322] border border-cyan-500/30 text-cyan-400 text-xs font-bold mb-3">
+        <div className="text-center mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0d1322] border border-cyan-500/30 text-cyan-400 text-xs font-bold mb-3">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" /> GAME WORLD & COMBAT SYSTEMS
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            مدن وأنظمة القتال في <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-sky-400">Equinox</span>{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">VS</span>
+            مدن وأنظمة القتال في{' '}
+            <span dir="ltr" className="inline-flex items-center gap-1.5 font-sans">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-sky-400">EQUINOX</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">VS</span>
+            </span>
           </h2>
-          <p className="text-slate-400 mt-2 sm:mt-3 text-sm sm:text-lg font-medium">استكشف خريطة اللعبة الشاسعة وأنظمة التطوير المتقدمة</p>
+          <p className="text-slate-400 mt-2.5 sm:mt-3 text-sm sm:text-lg font-medium">استكشف خريطة اللعبة الشاسعة وأنظمة التطوير المتقدمة</p>
         </div>
 
         {/* Grid 1: Game Cities */}
-        <div className="mb-10 sm:mb-12">
-          <h3 className="text-xl sm:text-2xl font-black text-white mb-4 sm:mb-6 flex items-center gap-2 border-r-4 border-cyan-400 pr-3">
+        <div className="mb-10 sm:mb-14">
+          <h3 className="text-xl sm:text-2xl font-black text-white mb-5 sm:mb-6 flex items-center gap-2.5 border-r-4 border-cyan-400 pr-3">
             <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400 shrink-0" />
             <span>مدن ومناطق العالم الأسطوري</span>
           </h3>
@@ -77,12 +80,12 @@ export default function GameSystems() {
 
         {/* Grid 2: Combat Systems */}
         <div>
-          <h3 className="text-xl sm:text-2xl font-black text-white mb-4 sm:mb-6 flex items-center gap-2 border-r-4 border-orange-500 pr-3">
+          <h3 className="text-xl sm:text-2xl font-black text-white mb-5 sm:mb-6 flex items-center gap-2.5 border-r-4 border-orange-500 pr-3">
             <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-orange-400 shrink-0" />
             <span>أنظمة القتال وتطوير العتاد</span>
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {combatSystemsList.map((sys, idx) => {
               const Icon = sys.icon;
               return (

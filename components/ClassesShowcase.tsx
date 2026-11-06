@@ -258,14 +258,17 @@ export default function ClassesShowcase() {
             <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-400 animate-pulse" /> IN-GAME HERO MODELS & CLASSES <Snowflake className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400" />
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
-            مجسمات وأبطال اللعبة الرسمية <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-orange-500">Equinox VS</span>
+            مجسمات وأبطال اللعبة الرسمية{' '}
+            <span dir="ltr" className="inline-flex items-center gap-1.5 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-orange-500 font-sans">
+              EQUINOX VS
+            </span>
           </h2>
           <p className="text-slate-400 mt-2 sm:mt-3 text-sm sm:text-xl font-medium max-w-2xl mx-auto">
             اختر بطل معركتك واستعرض المجسم البطولي الحقيقي والتفاصيل الكاملة من أصل اللعبة
           </p>
         </div>
 
-        {/* Class Selection Tabs with In-Game Avatars & Scrollable Pills on Mobile */}
+        {/* Class Selection Tabs */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3.5 mb-8 sm:mb-12 max-w-full overflow-x-auto pb-2 no-scrollbar">
           {classesData.map((cls) => {
             const isActive = activeClass.id === cls.id;
@@ -273,7 +276,7 @@ export default function ClassesShowcase() {
               <button
                 key={cls.id}
                 onClick={() => setActiveClass(cls)}
-                className={`group px-2.5 py-1.5 sm:px-4 sm:py-3 rounded-2xl font-black text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer border backdrop-blur-xl relative overflow-hidden shrink-0 ${
+                className={`group px-3 py-2 sm:px-4 sm:py-3 rounded-2xl font-black text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer border backdrop-blur-xl relative overflow-hidden shrink-0 ${
                   isActive
                     ? 'bg-gradient-to-r from-cyan-500/90 via-sky-500/90 to-blue-600/90 text-white border-white/50 shadow-[0_0_25px_rgba(0,240,255,0.45)] scale-105 z-10'
                     : 'bg-[#0a0f1d]/90 text-slate-300 border-slate-800/80 hover:text-white hover:border-cyan-500/50 hover:bg-[#11182d]'
@@ -298,7 +301,7 @@ export default function ClassesShowcase() {
         </div>
 
         {/* Selected Class Hero Model Display Card */}
-        <div className="p-4 sm:p-8 lg:p-12 rounded-3xl bg-[#0a0e1a]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center relative overflow-hidden">
+        <div className="p-5 sm:p-8 lg:p-12 rounded-3xl bg-[#0a0e1a]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center relative overflow-hidden">
 
           {/* Glowing Corner Accents */}
           <div className="absolute top-0 right-0 w-60 sm:w-80 h-60 sm:h-80 bg-gradient-to-bl from-cyan-500/20 to-transparent blur-[80px] pointer-events-none"></div>
@@ -317,7 +320,7 @@ export default function ClassesShowcase() {
               ></div>
 
               {/* Main Model Showcase Image */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] min-h-[220px] sm:min-h-[300px] overflow-hidden flex items-center justify-center p-2">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] min-h-[240px] sm:min-h-[300px] overflow-hidden flex items-center justify-center p-2">
                 <Image
                   src={activeClass.modelRender}
                   alt={activeClass.name}
@@ -328,7 +331,7 @@ export default function ClassesShowcase() {
               </div>
 
               {/* In-Game Card Overlay Footnote */}
-              <div className="p-3 sm:p-4 bg-gradient-to-t from-[#060913] via-[#090d1c]/90 to-transparent border-t border-slate-800/80 flex items-center justify-between">
+              <div className="p-3.5 sm:p-4 bg-gradient-to-t from-[#060913] via-[#090d1c]/90 to-transparent border-t border-slate-800/80 flex items-center justify-between">
 
                 {/* Official Game Portrait Avatar */}
                 <div className="flex items-center gap-2.5 sm:gap-3">
@@ -348,7 +351,7 @@ export default function ClassesShowcase() {
                 </div>
 
                 {/* Badge */}
-                <div className={`px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-black border ${activeClass.badge}`}>
+                <div dir="ltr" className={`px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-black border font-sans ${activeClass.badge}`}>
                   Equinox VS
                 </div>
 
@@ -357,8 +360,8 @@ export default function ClassesShowcase() {
             </div>
 
             {/* Weapon & Role Banner */}
-            <div className="mt-3 sm:mt-4 w-full p-3 sm:p-4 rounded-2xl bg-[#070b16] border border-slate-800/90 text-right flex items-center justify-between shadow-inner">
-              <span className="text-[11px] sm:text-xs font-bold text-slate-400">السلاح الرئيسي:</span>
+            <div className="mt-3 sm:mt-4 w-full p-3.5 sm:p-4 rounded-2xl bg-[#070b16] border border-slate-800/90 text-right flex items-center justify-between shadow-inner">
+              <span className="text-xs font-bold text-slate-400">السلاح الرئيسي:</span>
               <span className="text-xs sm:text-sm font-black text-amber-300">{activeClass.weapon}</span>
             </div>
 
@@ -367,13 +370,13 @@ export default function ClassesShowcase() {
           {/* Left Column (RTL): Class Description, Details & Stats */}
           <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-right">
 
-            <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-3.5 sm:gap-4">
               <div className="p-3 sm:p-4 rounded-2xl bg-[#12192d] border border-white/10 shadow-[inset_0_2px_10px_rgba(255,255,255,0.05)] shrink-0">
                 <ClassIcon className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400" />
               </div>
               <div>
                 <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">{activeClass.name}</h3>
-                <span className={`text-[10px] sm:text-xs font-bold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-md inline-block mt-1 border ${activeClass.badge}`}>
+                <span className={`text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-md inline-block mt-1 border ${activeClass.badge}`}>
                   {activeClass.role}
                 </span>
               </div>
@@ -402,7 +405,7 @@ export default function ClassesShowcase() {
               <div>
                 <div className="flex justify-between text-xs font-bold mb-1">
                   <span className="text-slate-400">القوة الهجومية (Attack)</span>
-                  <span className="text-orange-400 font-extrabold">{activeClass.stats.attack}%</span>
+                  <span dir="ltr" className="text-orange-400 font-black">{activeClass.stats.attack}%</span>
                 </div>
                 <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
                   <div className="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.attack}%` }}></div>
@@ -412,7 +415,7 @@ export default function ClassesShowcase() {
               <div>
                 <div className="flex justify-between text-xs font-bold mb-1">
                   <span className="text-slate-400">الصلابة والدفاع (Defense)</span>
-                  <span className="text-cyan-400 font-extrabold">{activeClass.stats.defense}%</span>
+                  <span dir="ltr" className="text-cyan-400 font-black">{activeClass.stats.defense}%</span>
                 </div>
                 <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
                   <div className="h-full bg-gradient-to-r from-cyan-400 to-sky-500 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.defense}%` }}></div>
@@ -422,7 +425,7 @@ export default function ClassesShowcase() {
               <div>
                 <div className="flex justify-between text-xs font-bold mb-1">
                   <span className="text-slate-400">السرعة والمناورة (Speed)</span>
-                  <span className="text-emerald-400 font-extrabold">{activeClass.stats.speed}%</span>
+                  <span dir="ltr" className="text-emerald-400 font-black">{activeClass.stats.speed}%</span>
                 </div>
                 <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
                   <div className="h-full bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.speed}%` }}></div>
@@ -432,7 +435,7 @@ export default function ClassesShowcase() {
               <div>
                 <div className="flex justify-between text-xs font-bold mb-1">
                   <span className="text-slate-400">صعوبة الاحتراف (Difficulty)</span>
-                  <span className="text-purple-400 font-extrabold">{activeClass.stats.difficulty}%</span>
+                  <span dir="ltr" className="text-purple-400 font-black">{activeClass.stats.difficulty}%</span>
                 </div>
                 <div className="h-2 sm:h-2.5 rounded-full bg-[#11172a] overflow-hidden p-0.5 border border-slate-800">
                   <div className="h-full bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full transition-all duration-700" style={{ width: `${activeClass.stats.difficulty}%` }}></div>

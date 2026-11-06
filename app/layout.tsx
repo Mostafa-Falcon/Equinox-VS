@@ -2,8 +2,24 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('http://13.140.221.40:3000'),
   title: 'Equinox VS - السيرفر العربي الرسمي لـ Conquer Mobile',
-  description: 'الموقع الرسمي للعبة Equinox VS - سيرفر قهر أونلاين موبايل العربي الخاص بعتاد بلس 12 وجوائز يومية.',
+  description: 'الموقع الرسمي لـ Equinox VS - سيرفر قهر أونلاين موبايل العربي بعتاد +8 مجاني بالحقيبة قابل للترقية لـ +12، هدايا يومية ومكافآت قتل الوحوش.',
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+      { url: '/logo-emblem.jpeg', type: 'image/jpeg' },
+    ],
+    shortcut: ['/icon.png'],
+    apple: [
+      { url: '/logo-emblem.jpeg', type: 'image/jpeg' },
+    ],
+  },
+  openGraph: {
+    title: 'Equinox VS - Conquer Mobile World',
+    description: 'انضم الآن لعالم Equinox VS واستلم عتادك وصندوق الهدايا فوراً!',
+    images: [{ url: '/logo-emblem.jpeg' }],
+  },
 };
 
 export default function RootLayout({
@@ -12,8 +28,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl">
-      <body className="bg-[#0b0e14] text-[#e0e6ed] antialiased">
+    <html lang="ar" dir="rtl" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/icon.png" sizes="any" />
+        <link rel="apple-touch-icon" href="/logo-emblem.jpeg" />
+      </head>
+      <body className="bg-[#050811] text-slate-100 antialiased overflow-x-hidden selection:bg-cyan-500 selection:text-black">
         {children}
       </body>
     </html>

@@ -50,7 +50,7 @@ export default function GameGallery() {
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
 
   return (
-    <section id="gallery" className="py-14 sm:py-20 bg-[#050811] relative overflow-hidden">
+    <section id="gallery" className="py-16 sm:py-22 bg-[#050811] relative overflow-hidden">
 
       {/* Ambient Background Glows */}
       <div className="absolute top-1/3 left-1/3 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/10 blur-[120px] sm:blur-[140px] pointer-events-none"></div>
@@ -59,20 +59,24 @@ export default function GameGallery() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
 
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#0c1222] border border-cyan-500/30 text-cyan-400 text-xs font-bold mb-3">
+        <div className="text-center mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0c1222] border border-cyan-500/30 text-cyan-400 text-xs font-bold mb-3">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" /> IN-GAME SCREENSHOTS SHOWCASE
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            لقطات شاشة حقيقية لسيرفر <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-orange-400">Equinox VS</span>
+            لقطات شاشة حقيقية لسيرفر{' '}
+            <span dir="ltr" className="inline-flex items-center gap-1.5 font-sans">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-orange-400">EQUINOX</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">VS</span>
+            </span>
           </h2>
-          <p className="text-slate-400 mt-2 sm:mt-3 text-sm sm:text-lg font-medium max-w-2xl mx-auto">
+          <p className="text-slate-400 mt-2.5 sm:mt-3 text-sm sm:text-lg font-medium max-w-2xl mx-auto">
             لقطات فعلية من داخل اللعبة تستعرض قائمة السيرفرات، واجهة الدخول، وعالم المعارك لـ Equinox VS
           </p>
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {galleryItems.map((item) => (
             <div
               key={item.id}
@@ -80,7 +84,7 @@ export default function GameGallery() {
             >
 
               {/* Image Box */}
-              <div className="relative h-52 sm:h-72 w-full overflow-hidden bg-[#050811]">
+              <div className="relative h-56 sm:h-72 w-full overflow-hidden bg-[#050811]">
                 {/* Genuine Screenshot Image */}
                 <img
                   src={item.image}
@@ -91,7 +95,7 @@ export default function GameGallery() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0e1424] via-transparent to-black/40"></div>
 
                 {/* Top Right Tag */}
-                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#050811]/90 border border-cyan-400/50 text-cyan-300 text-[10px] sm:text-xs font-black backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                <div dir="ltr" className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 px-3 py-1.5 rounded-full bg-[#050811]/90 border border-cyan-400/50 text-cyan-300 text-[10px] sm:text-xs font-black backdrop-blur-md shadow-lg flex items-center gap-1.5 font-sans">
                   <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
                   <span>{item.badge}</span>
                 </div>
@@ -99,20 +103,20 @@ export default function GameGallery() {
                 {/* Bottom Left Preview Button */}
                 <button
                   onClick={() => setSelectedItem(item)}
-                  className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 p-2 sm:p-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500 text-white border border-cyan-400/50 font-bold text-xs flex items-center gap-1.5 backdrop-blur-md transition-all shadow-lg cursor-pointer z-10"
+                  className="absolute bottom-3.5 left-3.5 sm:bottom-4 sm:left-4 p-2 sm:p-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500 text-white border border-cyan-400/50 font-bold text-xs flex items-center gap-1.5 backdrop-blur-md transition-all shadow-lg cursor-pointer z-10"
                 >
-                  <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <Eye className="w-4 h-4" />
                   <span>تكبير الشاشة</span>
                 </button>
               </div>
 
               {/* Caption Box */}
-              <div className="p-4 sm:p-6 text-right">
+              <div className="p-5 sm:p-6 text-right">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-1">
                   <h3 className="text-lg sm:text-2xl font-black text-white group-hover:text-cyan-300 transition-colors">
                     {item.title}
                   </h3>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-400">{item.category}</span>
+                  <span className="text-xs font-bold text-slate-400">{item.category}</span>
                 </div>
                 <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
                   {item.desc}
@@ -138,11 +142,11 @@ export default function GameGallery() {
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span className="text-sm sm:text-lg font-black text-white truncate">{selectedItem.title}</span>
+                <span className="text-sm sm:text-lg font-black text-white truncate">{selectedItem.title} - Equinox VS</span>
               </div>
               <button
                 onClick={() => setSelectedItem(null)}
-                className="p-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300"
+                className="p-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -157,8 +161,8 @@ export default function GameGallery() {
             </div>
 
             <div className="p-3 sm:p-4 rounded-2xl bg-[#070b14] border border-cyan-500/30 text-[11px] sm:text-xs font-bold text-cyan-300 flex flex-col sm:flex-row items-center justify-between gap-2">
-              <span>سيرفر اللعبة الرسمي: {selectedItem.serverName}</span>
-              <span>إصدار التطبيق: v106</span>
+              <span dir="ltr" className="font-sans">سيرفر اللعبة الرسمي: {selectedItem.serverName}</span>
+              <span dir="ltr" className="font-sans">إصدار التطبيق: v106</span>
             </div>
           </div>
         </div>
