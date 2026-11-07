@@ -37,8 +37,8 @@ const combatSystemsList = [
 
 export default function GameSystems() {
   return (
-    <section id="systems" className="pt-8 pb-12 sm:pt-10 sm:pb-16 bg-[#070b14] relative border-t border-slate-800/40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
+    <section id="systems" className="py-14 sm:py-20 lg:py-24 bg-[#070b14] relative border-t border-slate-800/40">
+      <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
 
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-12">

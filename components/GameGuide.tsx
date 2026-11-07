@@ -11,13 +11,13 @@ export default function GameGuide({ onOpenRegister }: GameGuideProps) {
   const downloadUrl = "/Equinox_VS.apk";
 
   return (
-    <section id="guide" className="pt-8 pb-12 sm:pt-10 sm:pb-16 bg-[#050811] relative overflow-hidden select-none border-t border-slate-800/40">
+    <section id="guide" className="py-14 sm:py-20 lg:py-24 bg-[#050811] relative overflow-hidden select-none border-t border-slate-800/40">
 
       {/* Subtle Background Glows */}
-      <div className="absolute top-1/3 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/10 blur-[130px] pointer-events-none"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-orange-500/10 blur-[130px] pointer-events-none"></div>
+      <div className="absolute top-1/3 left-1/4 w-80 sm:w-[500px] h-80 sm:h-[500px] bg-cyan-500/10 blur-[140px] pointer-events-none"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-80 sm:w-[500px] h-80 sm:h-[500px] bg-orange-500/10 blur-[140px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
+      <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
 
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-12">

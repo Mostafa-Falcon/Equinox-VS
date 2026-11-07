@@ -242,75 +242,75 @@ export default function ClassesShowcase() {
   const ClassIcon = activeClass.icon;
 
   return (
-    <section id="classes" className="pt-8 pb-12 sm:pt-10 sm:pb-16 bg-[#030611] relative overflow-hidden select-none border-t border-slate-800/40">
+    <section id="classes" className="py-14 sm:py-20 lg:py-24 bg-[#030611] relative overflow-hidden select-none border-t border-slate-800/40">
 
       {/* Dynamic Background Spotlight Ambient */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] blur-[120px] sm:blur-[160px] pointer-events-none transition-all duration-700 opacity-20 rounded-full"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] sm:w-[700px] h-[450px] sm:h-[700px] blur-[140px] sm:blur-[190px] pointer-events-none transition-all duration-700 opacity-20 rounded-full"
         style={{ backgroundColor: activeClass.accentColor }}
       ></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
+      <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
 
         {/* Section Header (Compact, No Overflow) */}
-        <div className="text-center mb-5 sm:mb-7">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#090e1c] border border-cyan-500/30 text-cyan-400 text-xs font-black mb-2 shadow-sm">
-            <Swords className="w-3.5 h-3.5 text-amber-400" />
+        <div className="text-center mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#090e1c] border border-cyan-500/30 text-cyan-400 text-xs font-black mb-3 shadow-md">
+            <Swords className="w-4 h-4 text-amber-400" />
             <span>أبطال وفئات قهر أونلاين الرسمية</span>
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            <Sparkles className="w-4 h-4 text-cyan-400" />
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
             استعرض مجسمات ومهارات أبطال{' '}
-            <span dir="ltr" className="inline-flex items-center gap-1.5 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-orange-500 font-sans">
+            <span dir="ltr" className="inline-flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-orange-500 font-sans">
               EQUINOX VS
             </span>
           </h2>
-          <p className="text-slate-400 mt-1.5 text-xs sm:text-sm font-bold max-w-xl mx-auto">
+          <p className="text-slate-300 mt-2.5 text-xs sm:text-base font-bold max-w-2xl mx-auto">
             اختر بطلك المفضل وتعرف على أسلحته القتالية، مهاراته الشهيرة، وطريقة السيطرة به في ساحات الـ PK
           </p>
         </div>
 
         {/* Horizontal Tab Selector (Clean Chips, Symmetrical & Tight Gap) */}
-        <div className="mb-4 sm:mb-6">
-          <div className="flex items-center justify-start lg:justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 pt-0.5 no-scrollbar px-1">
+        <div className="mb-6 sm:mb-8">
+          <div className="flex items-center justify-start lg:justify-center gap-2 sm:gap-2.5 overflow-x-auto pb-3 pt-1 no-scrollbar px-1">
             {classesData.map((cls) => {
               const isActive = activeClass.id === cls.id;
               return (
                 <button
                   key={cls.id}
                   onClick={() => setActiveClass(cls)}
-                  className={`group relative px-3 py-2 rounded-xl font-black text-xs transition-all duration-200 flex items-center gap-2 shrink-0 cursor-pointer border backdrop-blur-xl ${
+                  className={`group relative px-3.5 py-2.5 rounded-2xl font-black text-xs sm:text-sm transition-all duration-200 flex items-center gap-2.5 shrink-0 cursor-pointer border backdrop-blur-xl ${
                     isActive
-                      ? 'bg-[#121a2d] text-white border-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.35)] scale-102 z-10'
-                      : 'bg-[#070b16]/90 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700 hover:bg-[#0c1222]'
+                      ? 'bg-[#121a2d] text-white border-amber-400 shadow-[0_0_25px_rgba(245,158,11,0.4)] scale-105 z-10'
+                      : 'bg-[#070b16]/95 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700 hover:bg-[#0c1222]'
                   }`}
                   style={isActive ? { borderColor: cls.accentColor } : {}}
                 >
                   {/* Top Active Indicator Light */}
                   {isActive && (
                     <span
-                      className="absolute -top-1 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full shadow-[0_0_10px] transition-all"
-                      style={{ backgroundColor: cls.accentColor, boxShadow: `0 0 10px ${cls.accentColor}` }}
+                      className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full shadow-[0_0_12px] transition-all"
+                      style={{ backgroundColor: cls.accentColor, boxShadow: `0 0 12px ${cls.accentColor}` }}
                     ></span>
                   )}
 
                   {/* Character Avatar Circle */}
                   <div
-                    className={`w-6 h-6 rounded-lg overflow-hidden border shrink-0 transition-transform ${
-                      isActive ? 'border-amber-300 shadow-sm' : 'border-slate-700 opacity-75 group-hover:opacity-100'
+                    className={`w-7 h-7 rounded-xl overflow-hidden border shrink-0 transition-transform ${
+                      isActive ? 'border-amber-300 shadow-md scale-105' : 'border-slate-700 opacity-75 group-hover:opacity-100'
                     }`}
                   >
                     <Image
                       src={cls.avatarImg}
                       alt={cls.name}
-                      width={24}
-                      height={24}
+                      width={28}
+                      height={28}
                       className="object-cover w-full h-full"
                     />
                   </div>
 
                   {/* Class Name */}
-                  <span className="whitespace-nowrap font-bold">{cls.name}</span>
+                  <span className="whitespace-nowrap font-black">{cls.name}</span>
                 </button>
               );
             })}
@@ -318,11 +318,11 @@ export default function ClassesShowcase() {
         </div>
 
         {/* Hero Showcase Main Stage Card (Balanced, Symmetrical & Fully Filled) */}
-        <div className="p-4 sm:p-6 lg:p-7 rounded-3xl bg-[#070b16]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7 items-stretch relative overflow-hidden">
+        <div className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-[#070b16]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.85)] grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-stretch relative overflow-hidden">
 
           {/* Ambient Glows */}
           <div
-            className="absolute -top-24 -right-24 w-60 h-60 blur-[90px] pointer-events-none opacity-20"
+            className="absolute -top-28 -right-28 w-72 h-72 blur-[100px] pointer-events-none opacity-25"
             style={{ backgroundColor: activeClass.accentColor }}
           ></div>
 
@@ -330,7 +330,7 @@ export default function ClassesShowcase() {
           <div className="lg:col-span-5 relative flex flex-col justify-between">
 
             {/* Hero Stage Arena Backdrop */}
-            <div className="relative w-full h-[320px] sm:h-[380px] lg:h-full min-h-[340px] rounded-2xl border border-slate-800/90 bg-gradient-to-b from-[#0a0e1e] via-[#050812] to-[#02040a] shadow-[inset_0_0_40px_rgba(0,0,0,0.9)] overflow-hidden flex items-center justify-center group">
+            <div className="relative w-full h-[360px] sm:h-[420px] lg:h-full min-h-[380px] rounded-2xl border border-slate-800/90 bg-gradient-to-b from-[#0a0e1e] via-[#050812] to-[#02040a] shadow-[inset_0_0_50px_rgba(0,0,0,0.95)] overflow-hidden flex items-center justify-center group">
 
               {/* Pedestal Ground Lighting */}
               <div
