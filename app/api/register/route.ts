@@ -17,9 +17,9 @@ export async function POST(req: NextRequest) {
     }
 
     const md5Pass = crypto.createHash('md5').update(password).digest('hex');
-    const targetIp = serverIp || '13.140.221.40';
+    const targetIp = process.env.GAME_SERVER_IP || serverIp || '13.140.221.40';
 
-    // 1. Try forwarding to the active Rust Game Server HTTP Port (9528)
+    // 1. Try forwarding to the active Game Server HTTP Port (9528)
     try {
       const serverUrl = `http://${targetIp}:9528/register?a=${encodeURIComponent(cleanAcc)}&p=${md5Pass}`;
       const res = await fetch(serverUrl, { method: 'GET', cache: 'no-store' });
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ success: false, error: text.substring(4) }, { status: 400 });
       }
     } catch (e) {
-      console.log('Rust Server Port 9528 unreachable via HTTP, fallback to JSON storage check.');
+      console.log('Game Server Port 9528 unreachable via HTTP, fallback to storage check.');
     }
 
     // 2. Direct Fallback: Write directly to data/accounts.json if running on server filesystem

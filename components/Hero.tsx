@@ -9,7 +9,7 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenRegister, onOpenLogin }: HeroProps) {
-  const downloadUrl = "/Equinox_VS_13.140.221.40.apk";
+  const downloadUrl = "/Equinox_VS.apk";
 
   return (
     <section id="home" className="relative pt-24 sm:pt-28 pb-12 sm:pb-16 lg:pt-32 lg:pb-20 bg-[#030611] overflow-hidden flex items-center select-none">
@@ -38,23 +38,13 @@ export default function Hero({ onOpenRegister, onOpenLogin }: HeroProps) {
           {/* Right Column (Text & Main Conversion CTAs) */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6">
 
-            {/* Top Server & Version Badge */}
-            <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#080d1c]/90 border border-cyan-500/40 text-cyan-300 font-black text-xs sm:text-sm shadow-[0_0_20px_rgba(0,240,255,0.2)] backdrop-blur-2xl">
-                <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>
-                  سيرفر المعارك والـ <span dir="ltr" className="inline-block text-amber-300 font-black font-sans">PK</span> الأقوى لـ قهر أونلاين موبايل
-                </span>
-              </div>
-
-              {/* Live Server Status Tag */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-extrabold text-[11px] sm:text-xs">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span>سيرفر مباشر أونلاين 24/7 بدون لاج</span>
-              </div>
+            {/* Single Unified High-Impact Server Badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#080d1c]/90 border border-cyan-500/40 text-cyan-300 font-black text-xs sm:text-sm shadow-[0_0_20px_rgba(0,240,255,0.2)] backdrop-blur-2xl">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span>سيرفر المعارك والـ PK الرسمي لـ قهر أونلاين موبايل • متصل 24 ساعة بدون لاج</span>
             </div>
 
             {/* Main Brand Title */}
@@ -82,7 +72,7 @@ export default function Hero({ onOpenRegister, onOpenLogin }: HeroProps) {
                 {/* Primary APK Direct Download CTA */}
                 <a
                   href={downloadUrl}
-                  download="Equinox_VS_13.140.221.40.apk"
+                  download="Equinox_VS.apk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto flex-1 px-6 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 hover:shadow-[0_0_35px_rgba(0,240,255,0.6)] text-white font-black text-sm sm:text-base transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3 border border-white/30 cursor-pointer group shadow-xl active:scale-98"
@@ -205,7 +195,7 @@ export default function Hero({ onOpenRegister, onOpenLogin }: HeroProps) {
                 <div className="absolute bottom-3 right-3 left-3 sm:bottom-4 sm:right-4 sm:left-4 p-3 rounded-2xl bg-[#060a14]/95 border border-slate-700 backdrop-blur-md z-10">
                   <div className="text-white font-black text-xs sm:text-sm mb-1 flex items-center justify-between">
                     <span className="text-cyan-300">عالم المعارك المباشرة والـ PK</span>
-                    <span dir="ltr" className="text-amber-400 font-black font-sans text-xs">سيرفر مباشر</span>
+                    <span className="text-amber-400 font-black text-xs">سيرفر مباشر</span>
                   </div>
                   <p className="text-slate-300 text-[11px] sm:text-xs font-medium leading-relaxed">
                     سرعة فائقة واستقرار 24 ساعة بدون لاج، حركة وقفز سلس، عتاد +8 بالشنطة مجاناً، ومكافأة 5 CPs لكل 10 وحوش!

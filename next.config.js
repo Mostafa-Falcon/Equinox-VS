@@ -15,7 +15,7 @@ const nextConfig = {
           },
           {
             key: 'Content-Disposition',
-            value: 'attachment; filename="Equinox_VS_13.140.221.40.apk"',
+            value: 'attachment; filename="Equinox_VS.apk"',
           },
         ],
       },

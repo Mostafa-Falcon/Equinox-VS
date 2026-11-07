@@ -8,7 +8,7 @@ interface GameGuideProps {
 }
 
 export default function GameGuide({ onOpenRegister }: GameGuideProps) {
-  const downloadUrl = "/Equinox_VS_13.140.221.40.apk";
+  const downloadUrl = "/Equinox_VS.apk";
 
   return (
     <section id="guide" className="py-10 sm:py-16 lg:py-20 bg-[#050811] relative overflow-hidden select-none">
@@ -71,7 +71,7 @@ export default function GameGuide({ onOpenRegister }: GameGuideProps) {
 
             <a
               href={downloadUrl}
-              download="Equinox_VS_13.140.221.40.apk"
+              download="Equinox_VS.apk"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-black text-xs flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(0,240,255,0.3)] hover:shadow-[0_0_25px_rgba(0,240,255,0.5)] transition-all cursor-pointer"

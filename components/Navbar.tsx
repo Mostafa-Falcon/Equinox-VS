@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { UserPlus, LogIn, Menu, X, Flame, Snowflake, Sparkles, Activity, ShieldCheck, Download } from 'lucide-react';
+import { UserPlus, LogIn, Menu, X, Flame, Snowflake, Sparkles, Download, ShieldCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface NavbarProps {
@@ -12,7 +12,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const downloadUrl = "/Equinox_VS_13.140.221.40.apk";
+  const downloadUrl = "/Equinox_VS.apk";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +28,7 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 select-none',
         scrolled
           ? 'bg-[#030611]/95 backdrop-blur-2xl border-b border-cyan-500/25 shadow-[0_12px_40px_rgba(0,0,0,0.9)] py-2 sm:py-2.5'
-          : 'bg-gradient-to-b from-[#030611]/98 via-[#030611]/85 to-transparent backdrop-blur-md border-b border-white/5 py-3 sm:py-4'
+          : 'bg-gradient-to-b from-[#030611]/98 via-[#030611]/85 to-transparent backdrop-blur-md border-b border-white/5 py-3 sm:py-3.5'
       )}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
@@ -57,15 +57,14 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
           </div>
         </a>
 
-        {/* Live Server Indicator Chip (Desktop & Tablet) */}
+        {/* Live Server Indicator Chip (Gamer Friendly - NO IP EXPOSURE!) */}
         <div className="hidden md:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#080d1a]/90 border border-emerald-500/30 text-emerald-300 text-xs font-black shadow-[0_0_15px_rgba(16,185,129,0.15)] backdrop-blur-xl">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
           </span>
-          <span dir="ltr" className="font-sans text-[11px] font-extrabold tracking-wide">13.140.221.40</span>
-          <span className="text-slate-600">|</span>
-          <span className="text-[10px] text-emerald-400 font-bold">متصل 24/7</span>
+          <span className="font-bold">سيرفر المعارك الرسمي:</span>
+          <span className="text-emerald-400 font-black">أونلاين 24 ساعة</span>
         </div>
 
         {/* Clean Center Navigation Links */}
@@ -93,7 +92,7 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
           {/* Quick Direct Download Button */}
           <a
             href={downloadUrl}
-            download="Equinox_VS_13.140.221.40.apk"
+            download="Equinox_VS.apk"
             target="_blank"
             rel="noopener noreferrer"
             className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/30 hover:to-blue-500/30 border border-cyan-400/40 text-cyan-300 font-extrabold text-xs flex items-center gap-1.5 transition-all shadow-[0_0_15px_rgba(0,240,255,0.15)] shrink-0 whitespace-nowrap"
@@ -151,7 +150,7 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-x-0 top-[54px] sm:top-[66px] bg-[#030611]/98 border-b border-cyan-500/30 px-5 py-5 space-y-2.5 font-extrabold text-slate-200 backdrop-blur-2xl text-right shadow-2xl max-h-[82vh] overflow-y-auto animate-fadeIn">
 
-          {/* Mobile Server Status Banner */}
+          {/* Mobile Server Status Banner (Clean - NO IP) */}
           <div className="p-3 rounded-2xl bg-[#070b16] border border-emerald-500/30 flex items-center justify-between mb-3 text-xs">
             <div className="flex items-center gap-2">
               <span className="relative flex h-2.5 w-2.5">
@@ -160,7 +159,7 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
               </span>
               <span className="text-emerald-400 font-black">حالة السيرفر: متصل أونلاين</span>
             </div>
-            <span dir="ltr" className="text-slate-400 font-sans font-bold text-[11px]">13.140.221.40</span>
+            <span className="text-slate-400 font-bold text-[11px]">بدون لاج 24/7</span>
           </div>
 
           <a
@@ -209,7 +208,7 @@ export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
           {/* Quick Direct Download Action in Mobile Menu */}
           <a
             href={downloadUrl}
-            download="Equinox_VS_13.140.221.40.apk"
+            download="Equinox_VS.apk"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}

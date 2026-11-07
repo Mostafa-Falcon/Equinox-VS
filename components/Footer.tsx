@@ -4,7 +4,7 @@ import React from 'react';
 import { Download } from 'lucide-react';
 
 export default function Footer() {
-  const downloadUrl = "/Equinox_VS_13.140.221.40.apk";
+  const downloadUrl = "/Equinox_VS.apk";
 
   return (
     <footer className="py-10 sm:py-12 bg-[#04060d] border-t border-slate-800/80 text-slate-400 text-sm relative">
@@ -33,7 +33,7 @@ export default function Footer() {
           <a href="#classes" className="hover:text-orange-400 transition-colors">الأبطال والمجسمات</a>
           <a href="#systems" className="hover:text-cyan-400 transition-colors">أنظمة القتال</a>
           <a href="#guide" className="hover:text-cyan-400 transition-colors">طريقة اللعب</a>
-          <a href={downloadUrl} download="Equinox_VS_13.140.221.40.apk" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline flex items-center gap-1">
+          <a href={downloadUrl} download="Equinox_VS.apk" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline flex items-center gap-1">
             <Download className="w-3.5 h-3.5" /> تحميل APK
           </a>
         </div>

@@ -9,9 +9,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://13.140.221.40:3000'),
+  metadataBase: new URL('https://equinox-dusky.vercel.app'),
   title: 'Equinox VS - السيرفر العربي الرسمي لـ Conquer Mobile',
-  description: 'الموقع الرسمي لـ Equinox VS - سيرفر قهر أونلاين موبايل العربي بعتاد +8 مجاني بالحقيبة قابل للترقية لـ +12، هدايا يومية ومكافآت قتل الوحوش.',
+  description: 'الموقع الرسمي لـ Equinox VS - سيرفر قهر أونلاين موبايل العربي بعتاد +8 مجاني بالشنطة قابل للترقية لـ +12، هدايا يومية ومكافآت قتل الوحوش.',
   icons: {
     icon: [
       { url: '/icon.png', type: 'image/png' },
