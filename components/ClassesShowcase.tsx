@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Swords, Shield, Crosshair, Sparkles, Zap, Flame, Crown, Anchor, Wind, Compass, Award, Target, FlameKindling, ShieldAlert } from 'lucide-react';
+import { Swords, Shield, Crosshair, Sparkles, Zap, Flame, Crown, Anchor, Wind, Compass } from 'lucide-react';
 
 const classesData = [
   {
@@ -13,7 +13,7 @@ const classesData = [
     portraitImg: '/classes/zyjqspic.jpg',
     avatarImg: '/classes/newjqslwt.jpg',
     modelRender: '/classes/hero_trojan.jpg',
-    weapon: 'سيفين مزدوجين (Dual Swords / Clubs)',
+    weapon: 'سيفين مزدوجين (Dual Swords)',
     attackType: 'ضرر فيزيائي مدمر',
     range: 'التحام مباشر وسرعة خاطفة',
     role: 'ملك النزالات الفردية والضرر القاتل السريع',
@@ -24,11 +24,6 @@ const classesData = [
       { name: 'الأعصار الدوار (Cyclone)', desc: 'دوران هجومي عنيف يسحق الخصوم المحيطين بالبطل.' },
     ],
     stats: { attack: 100, defense: 75, speed: 90, difficulty: 60 },
-    highlights: [
-      'استخدام سلاحين هجوميين في نفس الوقت لزيادة الضرر',
-      'أعلى ضرر فيزيائي قاتل في مبارزات الحلبة ونزالات الـ PK',
-      'سرعة حركة ومناورة قفز تمنحه السيطرة في المعركة'
-    ],
     proTip: 'في معارك الـ PK الفردية، استدرج الخصم واقترب بالقفز السريع لتفعيل السيف السريع (Fast Blade) وإنهائه فوراً.',
     badge: 'bg-orange-500/15 text-orange-400 border-orange-500/40',
     accentColor: '#f97316',
@@ -52,11 +47,6 @@ const classesData = [
       { name: 'الرمح الطائر (Flying Spear)', desc: 'هجوم بعيد المدى لضرب وتشتيت تشكيلات العدو.' },
     ],
     stats: { attack: 80, defense: 100, speed: 65, difficulty: 50 },
-    highlights: [
-      'أعلى معدل دفاع وصحة (HP) بين كافة شخصيات اللعبة',
-      'استخدام الدرع لصد وحجب أشد ضربات السحر والفيزياء',
-      'القائد الأساسي وحامي الأصدقاء في حروب القلعة (Guild War)'
-    ],
     proTip: 'في حرب القلعة، تقدم في الصفوف الأولى لتشغيل حجب الدرع وتشتيت ضربات الخصوم عن رماة فريقك وحواة السحر.',
     badge: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40',
     accentColor: '#06b6d4',
@@ -80,11 +70,6 @@ const classesData = [
       { name: 'السهم القاتل (Intense Arrow)', desc: 'سهم فردي مركز يخترق دفاعات الأبطال في معارك الـ PK.' },
     ],
     stats: { attack: 85, defense: 50, speed: 100, difficulty: 70 },
-    highlights: [
-      'الماكينة الأولى لجمع الـ CPs: استفد من 10 Kills = 5 CPs بأعلى سرعة',
-      'مهارة الطيران تمنحه الأمان المطلق أثناء القتال وتجميع المواد',
-      'إصابة الأهداف على بعد شاشات كاملة قبل أن يتمكنوا من الاقتراب'
-    ],
     proTip: 'استخدم مهارة الطيران (Fly) أثناء صيد وحوش الخرائط لتفادي أي ضرر أرضي ومضاعفة سرعة تجميع الـ CPs الحرة.',
     badge: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40',
     accentColor: '#10b981',
@@ -108,11 +93,6 @@ const classesData = [
       { name: 'كرة النار المركزة (Fire Ring)', desc: 'كرات نارية سريعة تحرق الخصم وتمنع شفاءه في النزالات.' },
     ],
     stats: { attack: 100, defense: 45, speed: 75, difficulty: 75 },
-    highlights: [
-      'أعلى ضرر سحري مساحي باللعبة (AOE Magic Burst)',
-      'سلاح أساسي لتنظيف بوابة القلعة من تكتلات المدافعين',
-      'ضربات نارية متسلسلة تتخطى الدفاع الفيزيائي التقليدي'
-    ],
     proTip: 'في حروب النقابات، قف خلف السيّاف والتروجان واضرب بالنيزك الحارق لتفجير صفوف الأعداء وإعاقة تقدمهم.',
     badge: 'bg-red-500/15 text-red-300 border-red-500/40',
     accentColor: '#ef4444',
@@ -136,11 +116,6 @@ const classesData = [
       { name: 'نجمة الدقة والحماية (Stigma)', desc: 'إزالة اللعنات وزيادة دقة وقوة هجوم أعضاء الفريق.' },
     ],
     stats: { attack: 60, defense: 80, speed: 70, difficulty: 80 },
-    highlights: [
-      'الفئة الوحيدة القادرة على إعادة إحياء الأبطال في أرض المعركة',
-      'عنصر جوهري لا يمكن لأي نقابة خوض حرب القلعة بدونه',
-      'دعم سحري يمنح الفريق تفوقاً دائماً في الاستمرار بالقتال'
-    ],
     proTip: 'حافظ على مسافة أمان خلف خط القتال وكن يقظاً لإحياء التروجان والسيّاف فور سقوطهم ليواصلوا المعركة دون توقف.',
     badge: 'bg-purple-500/15 text-purple-300 border-purple-500/40',
     accentColor: '#a855f7',
@@ -164,11 +139,6 @@ const classesData = [
       { name: 'شفرات الكاتانا المزدوجة (Two-Fold Blades)', desc: 'سلسلة طعنات خاطفة تمزق درع العدو في ثانية.' },
     ],
     stats: { attack: 95, defense: 55, speed: 95, difficulty: 85 },
-    highlights: [
-      'سرعة حركة وركض خاطفة تتيح له التسلل خلف خطوط الأعداء',
-      'ضربات سموم مستمرة تستنزف أصحاب الدفاع العالي',
-      'اقتناص الأهداف الفردية بلمسة واحدة والهروب ببراعة'
-    ],
     proTip: 'في معارك الـ PK، ارمِ الضباب السام (Toxic Fog) أولاً لإنهاك الخصم، ثم نفذ ضربة الاغتيال لإنهاء المواجهة بلمح البصر.',
     badge: 'bg-rose-500/15 text-rose-300 border-rose-500/40',
     accentColor: '#f43f5e',
@@ -192,11 +162,6 @@ const classesData = [
       { name: 'بركة الحماية (Bless)', desc: 'زيادة الدفاع الإجمالي ومقاومة الضربات السحرية والحرجة.' },
     ],
     stats: { attack: 85, defense: 85, speed: 75, difficulty: 65 },
-    highlights: [
-      'ترياق كامل ضد سموم النينجا ولعنات السحرة في المعركة',
-      'توازن مثالي بين الدفاع القوي والهجوم الجسدي المؤثر',
-      'دروع حماية وبوفات قوة تعزز ثبات الفريق في الساحات'
-    ],
     proTip: 'راقب رفاقك في حروب القلعة؛ فور إصابتهم بأي سموم أو إعاقات، استخدم مهارة Radiance لتطهيرهم وعودتهم للقتال.',
     badge: 'bg-amber-500/15 text-amber-300 border-amber-500/40',
     accentColor: '#eab308',
@@ -220,11 +185,6 @@ const classesData = [
       { name: 'قنبلة الدخان (Smoke Bomb)', desc: 'إلقاء قنبلة تعمي بصر الأعداء وتمنح القرصان فرصة للمناورة.' },
     ],
     stats: { attack: 90, defense: 65, speed: 85, difficulty: 75 },
-    highlights: [
-      'مرونة قتالية هجينة تجمع بين السيف والمسدسات النارية',
-      'ضربات رصاص حاسمة ومتتالية من مسافة متوسطة',
-      'مهارات إرباك تشتت الخصم وتمنحك أفضلية في ساحة الـ PK'
-    ],
     proTip: 'استخدم رصاصة Black Spot لوضع العلامة على الخصم عن بعد، ثم اقترب بطعنات السيف لتفريغ ضرر مضاعف وإنهاء النزال.',
     badge: 'bg-sky-500/15 text-sky-300 border-sky-500/40',
     accentColor: '#0ea5e9',
@@ -248,11 +208,6 @@ const classesData = [
       { name: 'امتصاص الرياح (Wind Absorb)', desc: 'تحويل ضربات العدو إلى نقاط صحة تجدد طاقتك أثناء القتال.' },
     ],
     stats: { attack: 92, defense: 70, speed: 100, difficulty: 80 },
-    highlights: [
-      'أسرع حركات واندفاع في النزالات المباشرة لمنع هروب الخصوم',
-      'شفاء ذاتي وامتصاص مستمر للصحة يمنحه صموداً خارقاً',
-      'مرونة وتأقلم عالٍ ضد كل من المحاربين والرامي والسحرة'
-    ],
     proTip: 'استغل مهارة Chaser لملاحقة الرماة والسحرة الهاربين ومنعهم من الابتعاد عن مرمى ضرباتك.',
     badge: 'bg-teal-500/15 text-teal-300 border-teal-500/40',
     accentColor: '#14b8a6',
@@ -276,11 +231,6 @@ const classesData = [
       { name: 'قبضة الغضب (Dragon Fist)', desc: 'ضربة قاضية تركز طاقة التنين لاختراق أقوى الدروع الحصينة.' },
     ],
     stats: { attack: 98, defense: 75, speed: 95, difficulty: 85 },
-    highlights: [
-      'ضربات نونشاكو خاطفة متتالية تشل حركة الخصم تماماً',
-      'كسر دروع أصحاب الدفاع العالي مثل السيّاف والمحاربين',
-      'سيطرة كاملة في حلبة المبارزة ونزالات الـ 1v1 المباشرة'
-    ],
     proTip: 'فعل زئير التنين لكسر درع الخصم أولاً، ثم اطلق كومبو النونشاكو المتواصل لشل حركته وإنهاء المعركة فوراً.',
     badge: 'bg-amber-500/15 text-amber-300 border-amber-500/40',
     accentColor: '#f59e0b',
@@ -292,159 +242,152 @@ export default function ClassesShowcase() {
   const ClassIcon = activeClass.icon;
 
   return (
-    <section id="classes" className="py-10 sm:py-16 lg:py-20 bg-[#030611] relative overflow-hidden select-none">
+    <section id="classes" className="pt-8 pb-12 sm:pt-10 sm:pb-16 bg-[#030611] relative overflow-hidden select-none border-t border-slate-800/40">
 
       {/* Dynamic Background Spotlight Ambient */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] blur-[120px] sm:blur-[160px] pointer-events-none transition-all duration-700 opacity-20 rounded-full"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] blur-[120px] sm:blur-[160px] pointer-events-none transition-all duration-700 opacity-20 rounded-full"
         style={{ backgroundColor: activeClass.accentColor }}
       ></div>
 
-      {/* Grid Pattern Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none"></div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
 
-        {/* Section Header (Authentic Gamer Copy) */}
-        <div className="text-center mb-6 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#090e1c] border border-cyan-500/30 text-cyan-400 text-xs font-black mb-2.5 shadow-[0_0_20px_rgba(0,240,255,0.2)]">
-            <Swords className="w-4 h-4 text-amber-400 animate-pulse" />
+        {/* Section Header (Compact, No Overflow) */}
+        <div className="text-center mb-5 sm:mb-7">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#090e1c] border border-cyan-500/30 text-cyan-400 text-xs font-black mb-2 shadow-sm">
+            <Swords className="w-3.5 h-3.5 text-amber-400" />
             <span>أبطال وفئات قهر أونلاين الرسمية</span>
-            <Sparkles className="w-4 h-4 text-cyan-400" />
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
             استعرض مجسمات ومهارات أبطال{' '}
             <span dir="ltr" className="inline-flex items-center gap-1.5 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-orange-500 font-sans">
               EQUINOX VS
             </span>
           </h2>
-          <p className="text-slate-400 mt-2 text-xs sm:text-sm font-bold max-w-xl mx-auto">
+          <p className="text-slate-400 mt-1.5 text-xs sm:text-sm font-bold max-w-xl mx-auto">
             اختر بطلك المفضل وتعرف على أسلحته القتالية، مهاراته الشهيرة، وطريقة السيطرة به في ساحات الـ PK
           </p>
         </div>
 
-        {/* Horizontal Tab Selector with Touch Swipe Support */}
-        <div className="relative mb-6 sm:mb-10">
-          <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-2.5 overflow-x-auto pb-3 pt-1 no-scrollbar px-1">
+        {/* Horizontal Tab Selector (Clean Chips, Symmetrical & Tight Gap) */}
+        <div className="mb-4 sm:mb-6">
+          <div className="flex items-center justify-start lg:justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 pt-0.5 no-scrollbar px-1">
             {classesData.map((cls) => {
               const isActive = activeClass.id === cls.id;
               return (
                 <button
                   key={cls.id}
                   onClick={() => setActiveClass(cls)}
-                  className={`group relative px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl font-black text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 shrink-0 cursor-pointer border backdrop-blur-2xl ${
+                  className={`group relative px-3 py-2 rounded-xl font-black text-xs transition-all duration-200 flex items-center gap-2 shrink-0 cursor-pointer border backdrop-blur-xl ${
                     isActive
-                      ? 'bg-[#0f172a] text-white border-amber-400 shadow-[0_0_25px_rgba(0,240,255,0.35)] scale-105 z-10'
-                      : 'bg-[#070b16]/80 text-slate-400 border-slate-800/80 hover:text-slate-100 hover:border-slate-700 hover:bg-[#0c1222]'
+                      ? 'bg-[#121a2d] text-white border-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.35)] scale-102 z-10'
+                      : 'bg-[#070b16]/90 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700 hover:bg-[#0c1222]'
                   }`}
                   style={isActive ? { borderColor: cls.accentColor } : {}}
                 >
                   {/* Top Active Indicator Light */}
                   {isActive && (
                     <span
-                      className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full shadow-[0_0_12px] transition-all"
-                      style={{ backgroundColor: cls.accentColor, boxShadow: `0 0 12px ${cls.accentColor}` }}
+                      className="absolute -top-1 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full shadow-[0_0_10px] transition-all"
+                      style={{ backgroundColor: cls.accentColor, boxShadow: `0 0 10px ${cls.accentColor}` }}
                     ></span>
                   )}
 
                   {/* Character Avatar Circle */}
                   <div
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden border-2 shrink-0 transition-transform duration-300 ${
-                      isActive ? 'border-amber-300 scale-110 shadow-md' : 'border-slate-700 opacity-70 group-hover:opacity-100'
+                    className={`w-6 h-6 rounded-lg overflow-hidden border shrink-0 transition-transform ${
+                      isActive ? 'border-amber-300 shadow-sm' : 'border-slate-700 opacity-75 group-hover:opacity-100'
                     }`}
                   >
                     <Image
                       src={cls.avatarImg}
                       alt={cls.name}
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                       className="object-cover w-full h-full"
                     />
                   </div>
 
                   {/* Class Name */}
-                  <span className="whitespace-nowrap font-black">{cls.name}</span>
+                  <span className="whitespace-nowrap font-bold">{cls.name}</span>
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Hero Showcase Main Stage Card */}
-        <div className="p-4 sm:p-7 lg:p-10 rounded-3xl bg-[#070b16]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center relative overflow-hidden">
+        {/* Hero Showcase Main Stage Card (Balanced, Symmetrical & Fully Filled) */}
+        <div className="p-4 sm:p-6 lg:p-7 rounded-3xl bg-[#070b16]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7 items-stretch relative overflow-hidden">
 
-          {/* Background Ambient Glows inside Stage */}
+          {/* Ambient Glows */}
           <div
-            className="absolute -top-24 -right-24 w-72 h-72 blur-[100px] pointer-events-none opacity-25"
-            style={{ backgroundColor: activeClass.accentColor }}
-          ></div>
-          <div
-            className="absolute -bottom-24 -left-24 w-72 h-72 blur-[100px] pointer-events-none opacity-25"
+            className="absolute -top-24 -right-24 w-60 h-60 blur-[90px] pointer-events-none opacity-20"
             style={{ backgroundColor: activeClass.accentColor }}
           ></div>
 
           {/* Right Side (RTL): Character Visual Display Stage */}
-          <div className="lg:col-span-6 relative flex flex-col items-center justify-center">
+          <div className="lg:col-span-5 relative flex flex-col justify-between">
 
             {/* Hero Stage Arena Backdrop */}
-            <div className="relative w-full h-[320px] sm:h-[400px] lg:h-[430px] rounded-3xl border border-slate-800/90 bg-gradient-to-b from-[#0a0e1e] via-[#050812] to-[#02040a] shadow-[inset_0_0_50px_rgba(0,0,0,0.9)] overflow-hidden flex items-center justify-center group">
+            <div className="relative w-full h-[320px] sm:h-[380px] lg:h-full min-h-[340px] rounded-2xl border border-slate-800/90 bg-gradient-to-b from-[#0a0e1e] via-[#050812] to-[#02040a] shadow-[inset_0_0_40px_rgba(0,0,0,0.9)] overflow-hidden flex items-center justify-center group">
 
               {/* Pedestal Ground Lighting */}
               <div
-                className="absolute bottom-4 w-3/4 h-10 rounded-full opacity-40 blur-xl pointer-events-none transition-all duration-700"
+                className="absolute bottom-4 w-3/4 h-8 rounded-full opacity-40 blur-xl pointer-events-none transition-all duration-700"
                 style={{ backgroundColor: activeClass.accentColor }}
               ></div>
 
-              {/* Full Height Character Render Model */}
-              <div className="relative w-full h-full p-3 flex items-center justify-center z-10">
+              {/* Character Render Model */}
+              <div className="relative w-full h-full p-2 flex items-center justify-center z-10">
                 <Image
                   key={activeClass.id}
                   src={activeClass.modelRender}
                   alt={activeClass.name}
                   fill
-                  className="object-contain p-2 sm:p-4 filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.95)] transform group-hover:scale-105 transition-all duration-700"
+                  className="object-contain p-2 filter drop-shadow-[0_12px_25px_rgba(0,0,0,0.95)] transform group-hover:scale-105 transition-all duration-700"
                   priority
                 />
               </div>
 
               {/* Top Right Class Tag Badge */}
-              <div className="absolute top-3 right-3 px-3 py-1.5 rounded-full bg-[#050811]/90 border border-slate-700/80 text-white font-black text-xs flex items-center gap-2 backdrop-blur-md z-20 shadow-xl">
-                <ClassIcon className="w-4 h-4" style={{ color: activeClass.accentColor }} />
+              <div className="absolute top-2.5 right-2.5 px-3 py-1 rounded-full bg-[#050811]/90 border border-slate-700/80 text-white font-black text-xs flex items-center gap-1.5 backdrop-blur-md z-20 shadow-lg">
+                <ClassIcon className="w-3.5 h-3.5" style={{ color: activeClass.accentColor }} />
                 <span dir="ltr" className="font-sans font-black">{activeClass.englishName}</span>
               </div>
 
               {/* Bottom In-Game Portrait Avatar Bar */}
-              <div className="absolute bottom-3 inset-x-3 p-2.5 sm:p-3 rounded-2xl bg-[#060a15]/95 border border-slate-800/90 backdrop-blur-md flex items-center justify-between z-20 shadow-2xl">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden border-2 border-amber-400 shadow-md shrink-0">
+              <div className="absolute bottom-2.5 inset-x-2.5 p-2 rounded-xl bg-[#060a15]/95 border border-slate-800/90 backdrop-blur-md flex items-center justify-between z-20 shadow-xl">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg overflow-hidden border border-amber-400 shrink-0">
                     <Image
                       src={activeClass.portraitImg}
                       alt={activeClass.name}
-                      width={40}
-                      height={40}
+                      width={32}
+                      height={32}
                       className="object-cover w-full h-full"
                     />
                   </div>
                   <div className="text-right">
-                    <h4 className="text-xs sm:text-sm font-black text-white">{activeClass.name}</h4>
-                    <span className="text-[10px] font-bold text-amber-400">مجسم Conquer Mobile الرسمي</span>
+                    <h4 className="text-xs font-black text-white">{activeClass.name}</h4>
+                    <span className="text-[9.5px] font-bold text-amber-400">مجسم رسمي أصلي</span>
                   </div>
                 </div>
 
-                <div dir="ltr" className={`px-2.5 py-1 rounded-lg text-[10px] sm:text-xs font-black border font-sans ${activeClass.badge}`}>
+                <div dir="ltr" className={`px-2 py-0.5 rounded-lg text-[10px] font-black border font-sans ${activeClass.badge}`}>
                   EQUINOX VS
                 </div>
               </div>
 
             </div>
 
-            {/* Quick Combat Info Bar */}
-            <div className="mt-3 w-full grid grid-cols-2 gap-2 text-right">
-              <div className="p-2.5 rounded-2xl bg-[#060914] border border-slate-800/90 shadow-inner">
+            {/* Quick Combat Info Bar Below Arena */}
+            <div className="mt-2.5 grid grid-cols-2 gap-2 text-right">
+              <div className="p-2 rounded-xl bg-[#060914] border border-slate-800/90">
                 <span className="text-[10px] font-bold text-slate-400 block">السلاح المعتمد:</span>
                 <span className="text-xs font-black text-amber-300 truncate block mt-0.5">{activeClass.weapon}</span>
               </div>
-              <div className="p-2.5 rounded-2xl bg-[#060914] border border-slate-800/90 shadow-inner">
+              <div className="p-2 rounded-xl bg-[#060914] border border-slate-800/90">
                 <span className="text-[10px] font-bold text-slate-400 block">نمط الاشتباك:</span>
                 <span className="text-xs font-black text-cyan-300 truncate block mt-0.5">{activeClass.attackType}</span>
               </div>
@@ -452,33 +395,33 @@ export default function ClassesShowcase() {
 
           </div>
 
-          {/* Left Side (RTL): Hero Skills, Lore & Combat Statistics */}
-          <div className="lg:col-span-6 space-y-4 text-right">
+          {/* Left Side (RTL): Hero Lore, Skills & Combat Stats */}
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-3.5 text-right">
 
-            {/* Title Header & Role */}
+            {/* Header & Role */}
             <div>
-              <div className="flex items-center gap-3 mb-1.5">
-                <div className="p-2.5 rounded-2xl bg-[#0d1322] border border-slate-700/80 shadow-lg shrink-0">
-                  <ClassIcon className="w-6 h-6" style={{ color: activeClass.accentColor }} />
+              <div className="flex items-center gap-2.5 mb-1.5">
+                <div className="p-2 rounded-xl bg-[#0d1322] border border-slate-700/80 shadow-md shrink-0">
+                  <ClassIcon className="w-5 h-5" style={{ color: activeClass.accentColor }} />
                 </div>
                 <div>
-                  <h3 className="text-xl sm:text-3xl font-black text-white tracking-tight">{activeClass.name}</h3>
-                  <span dir="ltr" className="text-xs font-black text-amber-400 tracking-wider font-sans block mt-0.5">
+                  <h3 className="text-lg sm:text-2xl font-black text-white tracking-tight">{activeClass.name}</h3>
+                  <span dir="ltr" className="text-xs font-black text-amber-400 tracking-wider font-sans block">
                     {activeClass.englishName} • {activeClass.role}
                   </span>
                 </div>
               </div>
 
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium mt-2">
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
                 {activeClass.desc}
               </p>
             </div>
 
-            {/* Signature Skills Box (What gamers care about!) */}
-            <div className="p-3.5 rounded-2xl bg-[#050812] border border-slate-800/90 space-y-2">
-              <h4 className="text-xs font-black text-cyan-400 flex items-center gap-1.5 mb-1.5">
+            {/* Signature Skills (Clean 3-Item Stack - Fully Legible & Balanced) */}
+            <div className="p-3 rounded-2xl bg-[#050812] border border-slate-800/90 space-y-1.5">
+              <h4 className="text-xs font-black text-cyan-400 flex items-center gap-1.5 mb-1">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>أبرز مهارات البطل القتالية:</span>
+                <span>أشهر مهارات البطل القتالية:</span>
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {activeClass.skills.map((sk, i) => (
@@ -491,66 +434,68 @@ export default function ClassesShowcase() {
             </div>
 
             {/* Combat Statistics meters */}
-            <div className="p-3.5 rounded-2xl bg-[#040711] border border-slate-800/90 space-y-2.5 shadow-inner">
+            <div className="p-3 rounded-2xl bg-[#040711] border border-slate-800/90 space-y-2 shadow-inner">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
 
-              <div>
-                <div className="flex justify-between text-xs font-black mb-1">
-                  <span className="text-slate-300">القوة الهجومية (Attack)</span>
-                  <span dir="ltr" className="text-orange-400 font-sans">{activeClass.stats.attack}%</span>
+                <div>
+                  <div className="flex justify-between text-[11px] font-black mb-0.5">
+                    <span className="text-slate-300">القوة الهجومية (Attack)</span>
+                    <span dir="ltr" className="text-orange-400 font-sans">{activeClass.stats.attack}%</span>
+                  </div>
+                  <div className="h-1.5 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
+                    <div
+                      className="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full transition-all duration-500"
+                      style={{ width: `${activeClass.stats.attack}%` }}
+                    ></div>
+                  </div>
                 </div>
-                <div className="h-1.5 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
-                  <div
-                    className="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full transition-all duration-500"
-                    style={{ width: `${activeClass.stats.attack}%` }}
-                  ></div>
+
+                <div>
+                  <div className="flex justify-between text-[11px] font-black mb-0.5">
+                    <span className="text-slate-300">الصلابة والدفاع (Defense)</span>
+                    <span dir="ltr" className="text-cyan-400 font-sans">{activeClass.stats.defense}%</span>
+                  </div>
+                  <div className="h-1.5 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
+                    <div
+                      className="h-full bg-gradient-to-r from-cyan-400 to-sky-500 rounded-full transition-all duration-500"
+                      style={{ width: `${activeClass.stats.defense}%` }}
+                    ></div>
+                  </div>
                 </div>
+
+                <div>
+                  <div className="flex justify-between text-[11px] font-black mb-0.5">
+                    <span className="text-slate-300">السرعة والمناورة (Speed)</span>
+                    <span dir="ltr" className="text-emerald-400 font-sans">{activeClass.stats.speed}%</span>
+                  </div>
+                  <div className="h-1.5 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
+                    <div
+                      className="h-full bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full transition-all duration-500"
+                      style={{ width: `${activeClass.stats.speed}%` }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-[11px] font-black mb-0.5">
+                    <span className="text-slate-300">صعوبة الاحتراف (Difficulty)</span>
+                    <span dir="ltr" className="text-purple-400 font-sans">{activeClass.stats.difficulty}%</span>
+                  </div>
+                  <div className="h-1.5 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
+                    <div
+                      className="h-full bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full transition-all duration-500"
+                      style={{ width: `${activeClass.stats.difficulty}%` }}
+                    ></div>
+                  </div>
+                </div>
+
               </div>
-
-              <div>
-                <div className="flex justify-between text-xs font-black mb-1">
-                  <span className="text-slate-300">الصلابة والدفاع (Defense)</span>
-                  <span dir="ltr" className="text-cyan-400 font-sans">{activeClass.stats.defense}%</span>
-                </div>
-                <div className="h-1.5 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
-                  <div
-                    className="h-full bg-gradient-to-r from-cyan-400 to-sky-500 rounded-full transition-all duration-500"
-                    style={{ width: `${activeClass.stats.defense}%` }}
-                  ></div>
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-xs font-black mb-1">
-                  <span className="text-slate-300">السرعة والمناورة (Speed)</span>
-                  <span dir="ltr" className="text-emerald-400 font-sans">{activeClass.stats.speed}%</span>
-                </div>
-                <div className="h-1.5 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
-                  <div
-                    className="h-full bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full transition-all duration-500"
-                    style={{ width: `${activeClass.stats.speed}%` }}
-                  ></div>
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-xs font-black mb-1">
-                  <span className="text-slate-300">صعوبة الاحتراف (Difficulty)</span>
-                  <span dir="ltr" className="text-purple-400 font-sans">{activeClass.stats.difficulty}%</span>
-                </div>
-                <div className="h-1.5 rounded-full bg-[#0d1322] overflow-hidden p-0.5 border border-slate-800">
-                  <div
-                    className="h-full bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full transition-all duration-500"
-                    style={{ width: `${activeClass.stats.difficulty}%` }}
-                  ></div>
-                </div>
-              </div>
-
             </div>
 
-            {/* Combat Pro-Tip for Gamers */}
-            <div className="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs font-bold flex items-start gap-2.5">
-              <span className="text-base leading-none">💡</span>
-              <p className="leading-relaxed">
+            {/* Combat Pro-Tip for Gamers (Anchoring Bottom Edge) */}
+            <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs font-bold flex items-start gap-2">
+              <span className="text-sm leading-none shrink-0">💡</span>
+              <p className="leading-relaxed text-[11px] sm:text-xs">
                 <strong className="text-amber-300 font-black">نصيحة المعركة: </strong>
                 {activeClass.proTip}
               </p>

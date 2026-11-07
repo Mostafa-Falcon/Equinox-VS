@@ -56,7 +56,7 @@ const featuresList = [
 
 export default function Features() {
   return (
-    <section id="game-features" className="py-10 sm:py-16 lg:py-20 bg-[#070b14] relative">
+    <section id="game-features" className="pt-8 pb-12 sm:pt-10 sm:pb-16 bg-[#070b14] relative border-t border-slate-800/40">
 
       {/* Background Subtle Gradient Blobs */}
       <div className="absolute top-1/2 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/10 blur-[120px] pointer-events-none"></div>

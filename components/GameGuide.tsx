@@ -11,7 +11,7 @@ export default function GameGuide({ onOpenRegister }: GameGuideProps) {
   const downloadUrl = "/Equinox_VS.apk";
 
   return (
-    <section id="guide" className="py-10 sm:py-16 lg:py-20 bg-[#050811] relative overflow-hidden select-none">
+    <section id="guide" className="pt-8 pb-12 sm:pt-10 sm:pb-16 bg-[#050811] relative overflow-hidden select-none border-t border-slate-800/40">
 
       {/* Subtle Background Glows */}
       <div className="absolute top-1/3 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/10 blur-[130px] pointer-events-none"></div>

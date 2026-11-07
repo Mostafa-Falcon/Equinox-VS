@@ -50,7 +50,7 @@ export default function GameGallery() {
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
 
   return (
-    <section id="gallery" className="py-10 sm:py-16 lg:py-20 bg-[#050811] relative overflow-hidden select-none">
+    <section id="gallery" className="pt-8 pb-12 sm:pt-10 sm:pb-16 bg-[#050811] relative overflow-hidden select-none border-t border-slate-800/40">
 
       {/* Ambient Background Glows */}
       <div className="absolute top-1/3 left-1/3 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/10 blur-[120px] pointer-events-none"></div>

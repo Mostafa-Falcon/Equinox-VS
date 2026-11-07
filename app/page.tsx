@@ -49,7 +49,7 @@ export default function Home() {
       <GameGuide onOpenRegister={() => setIsRegisterOpen(true)} />
 
       {/* Dedicated Player Download Banner */}
-      <section id="download" className="py-10 sm:py-16 lg:py-20 bg-[#050811] relative text-center overflow-hidden select-none">
+      <section id="download" className="pt-8 pb-12 sm:pt-10 sm:pb-16 bg-[#050811] relative text-center overflow-hidden select-none border-t border-slate-800/40">
 
         {/* Background Glows */}
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] sm:w-[500px] h-[250px] bg-cyan-500/15 blur-[120px] pointer-events-none rounded-full"></div>
