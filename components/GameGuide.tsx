@@ -59,7 +59,7 @@ export default function GameGuide({ onOpenRegister }: GameGuideProps) {
               <ul className="space-y-2 mb-5 sm:mb-6 text-xs font-semibold text-slate-400">
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span>
-                  تحميل سريع بنقرة واحدة (312 MB)
+                  تحميل سريع بنقرة واحدة (315 MB)
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span>

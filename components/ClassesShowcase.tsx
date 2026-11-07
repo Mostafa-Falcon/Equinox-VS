@@ -2,7 +2,11 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Swords, Shield, Crosshair, Sparkles, Zap, Flame, Snowflake, Crown, Anchor, Wind, Compass, ShieldAlert, Award } from 'lucide-react';
+import { Swords, Shield, Crosshair, Sparkles, Zap, Flame, Crown, Anchor, Wind, Compass, Award, ChevronLeft, ChevronRight, UserPlus, Target } from 'lucide-react';
+
+interface ClassesShowcaseProps {
+  onOpenRegister?: () => void;
+}
 
 const classesData = [
   {
@@ -14,6 +18,8 @@ const classesData = [
     avatarImg: '/classes/newjqslwt.jpg',
     modelRender: '/classes/hero_trojan.jpg',
     weapon: 'سيفين مزدوجين (Dual Swords)',
+    attackType: 'ضرر فيزيائي مباشر',
+    range: 'قتال قريب خاطف',
     role: 'ملك القتال الفردي والضرر القاتل السريع',
     desc: 'التروجان هو ملك النزالات المباشرة في Conquer! يمتلك أعتى قوة هجومية بسيفين مزدوجين مع مهارات الحركة الخاطفة (Scent Sword & Fast Blade) التي تمكنه من الإطاحة بالخصوم في أجزاء من الثانية.',
     stats: { attack: 100, defense: 75, speed: 90, difficulty: 60 },
@@ -36,6 +42,8 @@ const classesData = [
     avatarImg: '/classes/newzslwt.jpg',
     modelRender: '/classes/hero_warrior.jpg',
     weapon: 'سيف ودرع ثقيل (Sword & Shield)',
+    attackType: 'دفاع وصلابة مطلقة',
+    range: 'خطوط الدفاع الأولى',
     role: 'الدرع البشري المتين وحامي الفريق',
     desc: 'السيّاف هو الحصن المنيع الذي يتحمل أشرس الضربات! يمتلك أضخم معدل صحة (HP) وأعلى دفاع باللعبة، مع مهارات حجب الهجمات وقيادة الصفوف الأولى في حروب القلعة.',
     stats: { attack: 80, defense: 100, speed: 65, difficulty: 50 },
@@ -58,6 +66,8 @@ const classesData = [
     avatarImg: '/classes/newgslwt.jpg',
     modelRender: '/classes/hero_archer.jpg',
     weapon: 'قوس وكيفر السهام (Bow & Arrows)',
+    attackType: 'سهام متساقطة مساحية',
+    range: 'مدى بعيد أقصى',
     role: 'صياد الوحوش السريع والقتال البعيد',
     desc: 'الرامي يصطاد أهدافه بسهام قاتلة من مسافات أمان بعيدة. يمتلك مهارة المطر السهمي (Scatter Strike) التي تقضي على أرتال الوحوش وتجمّع الـ CPs بأعلى سرعة خرافية باللعبة.',
     stats: { attack: 85, defense: 50, speed: 100, difficulty: 70 },
@@ -80,6 +90,8 @@ const classesData = [
     avatarImg: '/classes/newhdlwt.jpg',
     modelRender: '/classes/hero_fire_taoist.jpg',
     weapon: 'عصا السحر وكرة النار (Fire Backsword)',
+    attackType: 'سحر ناري تفجيري',
+    range: 'مدى سحري بعيد',
     role: 'سيد السحر الناري والضررات المساحية',
     desc: 'سيد الانفجارات السحرية الصاعقة! يطلق الكرات النارية والنيازك الحارقة التي تسحق تشكيلات الأعداء وتدمر خطوط القتال الخلفية في حرب النقابات.',
     stats: { attack: 100, defense: 45, speed: 75, difficulty: 75 },
@@ -102,6 +114,8 @@ const classesData = [
     avatarImg: '/classes/newdslwt.jpg',
     modelRender: '/classes/hero_water_taoist.jpg',
     weapon: 'عصا الشفاء والطلاسم (Talismans & Staff)',
+    attackType: 'شفاء ودعم سحري',
+    range: 'مدى الدعم والتطهير',
     role: 'الشفاء الخارق وإعادة الإحياء',
     desc: 'قلب الفريق النابض باللعبة! يمتلك المهارة الأسطورية لإعادة إحياء الأبطال فوراً (Resurrect)، مع الشفاء التام وزيادة سرعة اكتساب الخبرة الـ EXP.',
     stats: { attack: 60, defense: 80, speed: 70, difficulty: 80 },
@@ -124,6 +138,8 @@ const classesData = [
     avatarImg: '/classes/newrzlwt.jpg',
     modelRender: '/classes/hero_ninja.jpg',
     weapon: 'خناجر الكاتانا المزدوجة (Dual Katana)',
+    attackType: 'اغتيال خاطف بالسم',
+    range: 'تسلل وتخفي قريب',
     role: 'الاغتيال الخاطف والاختفاء وسرعة الحركة',
     desc: 'سيد الظلال والسرعة المرعبة! يباغت الأعداء من حيث لا يشعرون باستخدام مهارات الضباب السام والاختفاء وضربة الموت الحاسمة (Fatal Strike).',
     stats: { attack: 95, defense: 55, speed: 95, difficulty: 85 },
@@ -146,6 +162,8 @@ const classesData = [
     avatarImg: '/classes/newlslwt.jpg',
     modelRender: '/classes/hero_monk.jpg',
     weapon: 'عصا التسبيح والخرز (Prayer Beads)',
+    attackType: 'مقدس ودروع وقاية',
+    range: 'قتال وتطهير متوازن',
     role: 'تطهير اللعنات ودعم دفاع الفريق',
     desc: 'البطل المقدس وحامي الفريق! يمتلك هجمات القتال القريب الموزونة مع قدرة تطهير اللعنات والسموم وإبطال السحر ورش بوفات الحماية لأعضاء النقابة.',
     stats: { attack: 85, defense: 85, speed: 75, difficulty: 65 },
@@ -168,6 +186,8 @@ const classesData = [
     avatarImg: '/classes/newxklwt.jpg',
     modelRender: '/classes/hero_pirate.jpg',
     weapon: 'مسدسات وسيف القرصان (Pistols & Rapier)',
+    attackType: 'هجين سيف ومقذوفات',
+    range: 'مدى مزدوج مرن',
     role: 'قتال هجين قريب وبعيد مع ضرر حاسم',
     desc: 'سيد البحار والمغامرات الشرسة! يجمع بين المبارزة القريبة بسيف السايف والرمي بالمسدسات النارية المتتالية مع القنابل الدخانية.',
     stats: { attack: 90, defense: 65, speed: 85, difficulty: 75 },
@@ -190,6 +210,8 @@ const classesData = [
     avatarImg: '/classes/newwslwt.jpg',
     modelRender: '/classes/hero_windwalker.jpg',
     weapon: 'مراوح الرياح والمخالب (Fan & Claws)',
+    attackType: 'أعاصير وامتصاص دماء',
+    range: 'اندفاع خاطف مرن',
     role: 'سرعة الأعاصير والشفاء الذاتي',
     desc: 'مقاتل الأعاصير الخاطف! يمتلك أسرع معدل حركات متتالية بمهارات المروحة وتحويل الضرر الموجه إليه إلى صحة وامتصاص الدماء.',
     stats: { attack: 92, defense: 70, speed: 100, difficulty: 80 },
@@ -212,6 +234,8 @@ const classesData = [
     avatarImg: '/classes/newtslwt.jpg',
     modelRender: '/classes/hero_dragon.jpg',
     weapon: 'النونشاكو وقبضات التنين (Nunchaku)',
+    attackType: 'كومبو كونغ فو وسحق دروع',
+    range: 'اشتباك جسدي متلاحق',
     role: 'قتال الكونغ فو والضرر التتابعي الشرس',
     desc: 'أسطورة القتال الفردي بروح التنين! يمتلك ضربات النونشاكو الخاطفة والمتتالية بدون توقف مع مهارات اختراق دروع الخصم وسحقه.',
     stats: { attack: 98, defense: 75, speed: 95, difficulty: 85 },
@@ -227,16 +251,16 @@ const classesData = [
   }
 ];
 
-export default function ClassesShowcase() {
+export default function ClassesShowcase({ onOpenRegister }: ClassesShowcaseProps) {
   const [activeClass, setActiveClass] = useState(classesData[0]);
   const ClassIcon = activeClass.icon;
 
   return (
-    <section id="classes" className="py-16 sm:py-24 lg:py-32 bg-[#030611] relative overflow-hidden select-none">
+    <section id="classes" className="py-14 sm:py-20 lg:py-28 bg-[#030611] relative overflow-hidden select-none">
 
       {/* Dynamic Background Spotlight Ambient */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] sm:w-[800px] h-[450px] sm:h-[800px] blur-[140px] sm:blur-[180px] pointer-events-none transition-all duration-1000 opacity-20 rounded-full"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] blur-[140px] sm:blur-[180px] pointer-events-none transition-all duration-1000 opacity-20 rounded-full"
         style={{ backgroundColor: activeClass.accentColor }}
       ></div>
 
@@ -246,33 +270,33 @@ export default function ClassesShowcase() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-right">
 
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#090e1c] border border-cyan-500/30 text-cyan-400 text-xs font-black mb-3 shadow-[0_0_20px_rgba(0,240,255,0.2)]">
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#090e1c] border border-cyan-500/30 text-cyan-400 text-xs font-black mb-3 shadow-[0_0_20px_rgba(0,240,255,0.2)]">
             <Award className="w-4 h-4 text-amber-400 animate-pulse" /> AAA IN-GAME HERO SHOWCASE <Sparkles className="w-4 h-4 text-cyan-400" />
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
+          <h2 className="text-2xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
             استعرض أبطال ومجسمات{' '}
             <span dir="ltr" className="inline-flex items-center gap-1.5 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-orange-500 font-sans">
               EQUINOX VS
             </span>
           </h2>
-          <p className="text-slate-400 mt-2 sm:mt-3 text-sm sm:text-lg font-bold max-w-2xl mx-auto">
-            اختر البطل المفضل لديك واستكشف المجسم البطولي المباشر، الأسلحة القتالية، والمواصفات الكاملة
+          <p className="text-slate-400 mt-2 sm:mt-3 text-xs sm:text-base font-bold max-w-2xl mx-auto">
+            اختر البطل المفضل لديك واستكشف المجسم القتالي المباشر، الأسلحة، والمواصفات الكاملة
           </p>
         </div>
 
-        {/* Sleek Horizontal Tab Selector with Avatars & Distinct Titles */}
-        <div className="mb-10 sm:mb-14">
-          <div className="flex items-center justify-start sm:justify-center gap-2.5 sm:gap-3 overflow-x-auto pb-4 pt-1 no-scrollbar px-1">
+        {/* Horizontal Tab Selector with Touch Swipe Support */}
+        <div className="relative mb-8 sm:mb-12">
+          <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto pb-3 pt-1 no-scrollbar px-2">
             {classesData.map((cls) => {
               const isActive = activeClass.id === cls.id;
               return (
                 <button
                   key={cls.id}
                   onClick={() => setActiveClass(cls)}
-                  className={`group relative px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-2xl font-black text-xs sm:text-sm transition-all duration-300 flex items-center gap-2.5 shrink-0 cursor-pointer border backdrop-blur-2xl ${
+                  className={`group relative px-3 sm:px-4 py-2 sm:py-3 rounded-2xl font-black text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 sm:gap-2.5 shrink-0 cursor-pointer border backdrop-blur-2xl ${
                     isActive
-                      ? 'bg-[#0f172a] text-white border-amber-400/80 shadow-[0_0_30px_rgba(0,240,255,0.35)] scale-105 z-10'
+                      ? 'bg-[#0f172a] text-white border-amber-400 shadow-[0_0_25px_rgba(0,240,255,0.35)] scale-105 z-10'
                       : 'bg-[#070b16]/80 text-slate-400 border-slate-800/80 hover:text-slate-100 hover:border-slate-700 hover:bg-[#0c1222]'
                   }`}
                   style={isActive ? { borderColor: cls.accentColor } : {}}
@@ -287,15 +311,15 @@ export default function ClassesShowcase() {
 
                   {/* Character Avatar Circle */}
                   <div
-                    className={`w-7 h-7 sm:w-9 sm:h-9 rounded-full overflow-hidden border-2 shrink-0 transition-transform duration-300 ${
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden border-2 shrink-0 transition-transform duration-300 ${
                       isActive ? 'border-amber-300 scale-110 shadow-md' : 'border-slate-700 opacity-70 group-hover:opacity-100'
                     }`}
                   >
                     <Image
                       src={cls.avatarImg}
                       alt={cls.name}
-                      width={36}
-                      height={36}
+                      width={32}
+                      height={32}
                       className="object-cover w-full h-full"
                     />
                   </div>
@@ -309,20 +333,20 @@ export default function ClassesShowcase() {
         </div>
 
         {/* Hero Showcase Main Stage Card */}
-        <div className="p-6 sm:p-10 lg:p-14 rounded-3xl bg-[#070b16]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_25px_80px_rgba(0,0,0,0.9)] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center relative overflow-hidden">
+        <div className="p-5 sm:p-8 lg:p-12 rounded-3xl bg-[#070b16]/95 border border-slate-800/90 backdrop-blur-2xl shadow-[0_25px_80px_rgba(0,0,0,0.9)] grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-12 items-center relative overflow-hidden">
 
           {/* Background Ambient Glows inside Stage */}
           <div
-            className="absolute -top-24 -right-24 w-96 h-96 blur-[120px] pointer-events-none opacity-25"
+            className="absolute -top-24 -right-24 w-80 h-80 blur-[120px] pointer-events-none opacity-25"
             style={{ backgroundColor: activeClass.accentColor }}
           ></div>
           <div
-            className="absolute -bottom-24 -left-24 w-96 h-96 blur-[120px] pointer-events-none opacity-25"
+            className="absolute -bottom-24 -left-24 w-80 h-80 blur-[120px] pointer-events-none opacity-25"
             style={{ backgroundColor: activeClass.accentColor }}
           ></div>
 
           {/* Right Side (RTL): Dazzling Hero Model Display Stage */}
-          <div className="lg:col-span-6 relative flex flex-col items-center justify-center min-h-[380px] sm:min-h-[480px]">
+          <div className="lg:col-span-6 relative flex flex-col items-center justify-center min-h-[340px] sm:min-h-[460px]">
 
             {/* Arena Spotlight Aura */}
             <div
@@ -331,7 +355,7 @@ export default function ClassesShowcase() {
             ></div>
 
             {/* Hero Stage Arena Backdrop */}
-            <div className="relative w-full h-[360px] sm:h-[460px] rounded-3xl border border-slate-800/90 bg-gradient-to-b from-[#0a0e1e] via-[#050812] to-[#02040a] shadow-[inset_0_0_60px_rgba(0,0,0,0.9)] overflow-hidden flex items-center justify-center group">
+            <div className="relative w-full h-[340px] sm:h-[450px] rounded-3xl border border-slate-800/90 bg-gradient-to-b from-[#0a0e1e] via-[#050812] to-[#02040a] shadow-[inset_0_0_60px_rgba(0,0,0,0.9)] overflow-hidden flex items-center justify-center group">
 
               {/* Pedestal Ground Lighting */}
               <div
@@ -352,21 +376,21 @@ export default function ClassesShowcase() {
                   src={activeClass.modelRender}
                   alt={activeClass.name}
                   fill
-                  className="object-contain p-2 sm:p-4 filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.95)] transform group-hover:scale-105 transition-all duration-700 animate-fadeIn"
+                  className="object-contain p-2 sm:p-4 filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.95)] transform group-hover:scale-105 transition-all duration-700"
                   priority
                 />
               </div>
 
               {/* Top Right Class Tag Badge */}
-              <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-[#050811]/90 border border-slate-700/80 text-white font-black text-xs flex items-center gap-2 backdrop-blur-md z-20 shadow-xl">
+              <div className="absolute top-3.5 right-3.5 px-3 py-1.5 rounded-full bg-[#050811]/90 border border-slate-700/80 text-white font-black text-xs flex items-center gap-2 backdrop-blur-md z-20 shadow-xl">
                 <ClassIcon className="w-4 h-4" style={{ color: activeClass.accentColor }} />
                 <span dir="ltr" className="font-sans font-black">{activeClass.englishName}</span>
               </div>
 
               {/* Bottom In-Game Portrait Avatar Bar */}
-              <div className="absolute bottom-3 inset-x-3 p-3 rounded-2xl bg-[#060a15]/90 border border-slate-800/90 backdrop-blur-md flex items-center justify-between z-20 shadow-2xl">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl overflow-hidden border-2 border-amber-400 shadow-md shrink-0">
+              <div className="absolute bottom-3 inset-x-3 p-3 rounded-2xl bg-[#060a15]/95 border border-slate-800/90 backdrop-blur-md flex items-center justify-between z-20 shadow-2xl">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden border-2 border-amber-400 shadow-md shrink-0">
                     <Image
                       src={activeClass.portraitImg}
                       alt={activeClass.name}
@@ -388,22 +412,28 @@ export default function ClassesShowcase() {
 
             </div>
 
-            {/* Weapon Showcase Bar */}
-            <div className="mt-3.5 w-full p-3.5 rounded-2xl bg-[#060914] border border-slate-800/90 flex items-center justify-between text-right shadow-inner">
-              <span className="text-xs font-bold text-slate-400">السلاح والقتال:</span>
-              <span className="text-xs sm:text-sm font-black text-amber-300">{activeClass.weapon}</span>
+            {/* Quick Combat Info Bar */}
+            <div className="mt-3 w-full grid grid-cols-2 gap-2 text-right">
+              <div className="p-2.5 rounded-2xl bg-[#060914] border border-slate-800/90 shadow-inner">
+                <span className="text-[10px] font-bold text-slate-400 block">السلاح المعتمد:</span>
+                <span className="text-xs font-black text-amber-300 truncate block mt-0.5">{activeClass.weapon}</span>
+              </div>
+              <div className="p-2.5 rounded-2xl bg-[#060914] border border-slate-800/90 shadow-inner">
+                <span className="text-[10px] font-bold text-slate-400 block">نمط الاشتباك:</span>
+                <span className="text-xs font-black text-cyan-300 truncate block mt-0.5">{activeClass.attackType}</span>
+              </div>
             </div>
 
           </div>
 
           {/* Left Side (RTL): Hero Lore & Interactive Statistics */}
-          <div className="lg:col-span-6 space-y-5 text-right">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-5 text-right">
 
-            {/* Title Header & Badge */}
+            {/* Title Header & Role */}
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <div className="p-3 rounded-2xl bg-[#0d1322] border border-slate-700/80 shadow-lg shrink-0">
-                  <ClassIcon className="w-7 h-7" style={{ color: activeClass.accentColor }} />
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-[#0d1322] border border-slate-700/80 shadow-lg shrink-0">
+                  <ClassIcon className="w-6 h-6 sm:w-7 sm:h-7" style={{ color: activeClass.accentColor }} />
                 </div>
                 <div>
                   <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">{activeClass.name}</h3>
@@ -413,7 +443,7 @@ export default function ClassesShowcase() {
                 </div>
               </div>
 
-              <p className="text-slate-300 text-xs sm:text-base leading-relaxed font-medium mt-3">
+              <p className="text-slate-300 text-xs sm:text-base leading-relaxed font-medium mt-2.5">
                 {activeClass.desc}
               </p>
             </div>
@@ -421,7 +451,7 @@ export default function ClassesShowcase() {
             {/* Combat Features */}
             <div className="space-y-2 pt-1 border-t border-slate-800/80">
               <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider">مميزات الفئة في معارك الـ PK:</h4>
-              <ul className="space-y-2">
+              <ul className="space-y-1.5 sm:space-y-2">
                 {activeClass.highlights.map((h, i) => (
                   <li key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200 font-bold">
                     <span
@@ -435,7 +465,7 @@ export default function ClassesShowcase() {
             </div>
 
             {/* Combat Statistics meters */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#040711] border border-slate-800/90 space-y-3.5 shadow-inner">
+            <div className="p-3.5 sm:p-5 rounded-2xl bg-[#040711] border border-slate-800/90 space-y-3 shadow-inner">
 
               <div>
                 <div className="flex justify-between text-xs font-black mb-1">
@@ -490,6 +520,19 @@ export default function ClassesShowcase() {
               </div>
 
             </div>
+
+            {/* Quick Hero Call-to-action button */}
+            {onOpenRegister && (
+              <div className="pt-2">
+                <button
+                  onClick={onOpenRegister}
+                  className="w-full py-3 px-5 rounded-2xl bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 hover:shadow-[0_0_30px_rgba(0,240,255,0.5)] text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg active:scale-98"
+                >
+                  <UserPlus className="w-4 h-4" />
+                  <span>أنشئ حسابك والعب بـ {activeClass.name} الآن</span>
+                </button>
+              </div>
+            )}
 
           </div>
 
