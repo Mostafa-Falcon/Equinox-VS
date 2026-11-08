@@ -12,11 +12,12 @@ import RegisterModal from '@/components/RegisterModal';
 import LoginModal from '@/components/LoginModal';
 import Footer from '@/components/Footer';
 import { Download, UserPlus, ShieldCheck, LogIn, Swords, Gift, Target, Sparkles, Zap } from 'lucide-react';
+import { DOWNLOAD_APK_URL } from '@/lib/constants';
 
 export default function Home() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const downloadUrl = "/Equinox_VS.apk";
+  const downloadUrl = DOWNLOAD_APK_URL;
 
   return (
     <main className="min-h-screen bg-[#050811] text-slate-100 selection:bg-cyan-500 selection:text-black font-sans dir-rtl overflow-x-hidden pb-16 sm:pb-0">

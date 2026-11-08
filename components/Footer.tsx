@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { Download } from 'lucide-react';
+import { DOWNLOAD_APK_URL } from '@/lib/constants';
 
 export default function Footer() {
-  const downloadUrl = "/Equinox_VS.apk";
+  const downloadUrl = DOWNLOAD_APK_URL;
 
   return (
     <footer className="py-10 sm:py-12 bg-[#04060d] border-t border-slate-800/80 text-slate-400 text-sm relative">

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { UserPlus, LogIn, Menu, X, Flame, Snowflake, Sparkles, Download, ShieldCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { DOWNLOAD_APK_URL } from '@/lib/constants';
 
 interface NavbarProps {
   onOpenRegister: () => void;
@@ -12,7 +13,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenRegister, onOpenLogin }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const downloadUrl = "/Equinox_VS.apk";
+  const downloadUrl = DOWNLOAD_APK_URL;
 
   useEffect(() => {
     const handleScroll = () => {

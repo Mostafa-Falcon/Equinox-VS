@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Download, UserPlus, LogIn, Swords, Sparkles, Trophy, Zap, Target, ShieldCheck, Activity } from 'lucide-react';
+import { DOWNLOAD_APK_URL } from '@/lib/constants';
 
 interface HeroProps {
   onOpenRegister: () => void;
@@ -9,7 +10,7 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenRegister, onOpenLogin }: HeroProps) {
-  const downloadUrl = "/Equinox_VS.apk";
+  const downloadUrl = DOWNLOAD_APK_URL;
 
   return (
     <section id="home" className="relative pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 bg-[#030611] overflow-hidden flex items-center select-none">

@@ -4,6 +4,25 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
+  async redirects() {
+    return [
+      {
+        source: '/Equinox_VS.apk',
+        destination: 'https://github.com/Mostafa-Falcon/Equinox-VS/releases/download/v1.0.6/Equinox_VS.apk',
+        permanent: false,
+      },
+      {
+        source: '/download',
+        destination: 'https://github.com/Mostafa-Falcon/Equinox-VS/releases/download/v1.0.6/Equinox_VS.apk',
+        permanent: false,
+      },
+      {
+        source: '/download-apk',
+        destination: 'https://github.com/Mostafa-Falcon/Equinox-VS/releases/download/v1.0.6/Equinox_VS.apk',
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
       {

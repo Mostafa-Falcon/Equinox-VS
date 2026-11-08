@@ -2,13 +2,14 @@
 
 import React from 'react';
 import { Download, UserPlus, CheckCircle2, Sparkles } from 'lucide-react';
+import { DOWNLOAD_APK_URL } from '@/lib/constants';
 
 interface GameGuideProps {
   onOpenRegister: () => void;
 }
 
 export default function GameGuide({ onOpenRegister }: GameGuideProps) {
-  const downloadUrl = "/Equinox_VS.apk";
+  const downloadUrl = DOWNLOAD_APK_URL;
 
   return (
     <section id="guide" className="py-14 sm:py-20 lg:py-24 bg-[#050811] relative overflow-hidden select-none border-t border-slate-800/40">
