@@ -27,25 +27,43 @@ export async function POST(req: NextRequest) {
 
     const cleanAcc = account.trim().toLowerCase();
     const md5Pass = crypto.createHash('md5').update(password).digest('hex');
+    const doubleMd5Pass = crypto.createHash('md5').update(md5Pass).digest('hex');
+    const targetIp = process.env.GAME_SERVER_IP || '13.140.221.40';
 
-    // 1. Verify Password against accounts.json
-    const accountsPath = path.join(process.cwd(), '..', 'data', 'accounts.json');
     let validAccount = false;
 
-    if (fs.existsSync(accountsPath)) {
+    // 1. Live Validation against active Game Server HTTP Port (9528)
+    try {
+      const serverUrl = `http://${targetIp}:9528/login?a=${encodeURIComponent(cleanAcc)}&p=${md5Pass}`;
+      const res = await fetch(serverUrl, { method: 'GET', cache: 'no-store' });
+      const text = (await res.text()).trim();
+
+      if (text.startsWith('ok')) {
+        validAccount = true;
+      }
+    } catch (e) {
+      console.log('Game Server Port 9528 unreachable via HTTP, fallback to local storage check.');
+    }
+
+    // 2. Fallback: Verify Password against accounts.json if live server didn't respond
+    const accountsPath = path.join(process.cwd(), '..', 'data', 'accounts.json');
+
+    if (!validAccount && fs.existsSync(accountsPath)) {
       try {
         const content = fs.readFileSync(accountsPath, 'utf8');
         const accounts = JSON.parse(content);
-        if (accounts[cleanAcc] && accounts[cleanAcc].pass.toLowerCase() === md5Pass.toLowerCase()) {
-          validAccount = true;
+        if (accounts[cleanAcc]) {
+          const storedPass = accounts[cleanAcc].pass.toLowerCase();
+          if (storedPass === md5Pass.toLowerCase() || storedPass === doubleMd5Pass.toLowerCase() || storedPass === password.toLowerCase()) {
+            validAccount = true;
+          }
         }
       } catch (e) {
         console.error('Error reading accounts.json:', e);
       }
     }
 
-    // Allow login if account found, or fallback attempt
-    if (!validAccount && fs.existsSync(accountsPath)) {
+    if (!validAccount) {
       return NextResponse.json({ success: false, error: 'اسم الحساب أو كلمة المرور غير صحيحة' }, { status: 401 });
     }
 

@@ -26,6 +26,19 @@ export async function POST(req: NextRequest) {
       const text = (await res.text()).trim();
 
       if (text.startsWith('ok')) {
+        // Synchronize with local accounts.json if present
+        try {
+          const dbPath = path.join(process.cwd(), '..', 'data', 'accounts.json');
+          if (fs.existsSync(path.dirname(dbPath))) {
+            let accounts: Record<string, { pass: string; authority?: number }> = {};
+            if (fs.existsSync(dbPath)) {
+              accounts = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+            }
+            accounts[cleanAcc] = { pass: md5Pass, authority: 0 };
+            fs.writeFileSync(dbPath, JSON.stringify(accounts, null, 2), 'utf8');
+          }
+        } catch (_) {}
+
         return NextResponse.json({ success: true, message: 'تم إنشاء الحساب بنجاح عبر السيرفر المباشر!' });
       } else if (text.startsWith('err')) {
         return NextResponse.json({ success: false, error: text.substring(4) }, { status: 400 });
